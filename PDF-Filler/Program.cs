@@ -1,8 +1,14 @@
 ﻿using System;
 using System.IO;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+using System.Reflection.PortableExecutable;
+using System.Text;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.XPath;
 using static iTextSharp.text.pdf.codec.TiffWriter;
+using Syncfusion.Pdf.Xfa;
+using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
 
 class Program
 {
@@ -11,72 +17,51 @@ class Program
         string inputFile = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\InputFiles\\imm1294e.pdf"; // Replace with the path to your input XFA PDF form.
         string outputFile = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\OutputFiles\\imm1294e.pdf"; // Replace with the path for the filled PDF.
 
-        using (var pdfReader = new PdfReader(inputFile))
+        //Load the PDF document.
+        using (FileStream docStream = new FileStream(inputFile, FileMode.Open, FileAccess.Read))
         {
-            PdfReader.unethicalreading = true;
-
-            // Check if the PDF has a user password (open password).
-            if (pdfReader.IsOpenedWithFullPermissions)
-            {
-                Console.WriteLine("PDF can be opened with full permissions.");
-            }
-            else
-            {
-                Console.WriteLine("PDF can be opened with restricted permissions.");
-            }
-
-            // Retrieve the permissions as a bitmask.
-            long permissions = pdfReader.Permissions;
-
-            // Check individual permission flags.
-            if ((permissions & PdfWriter.ALLOW_PRINTING) == PdfWriter.ALLOW_PRINTING)
-            {
-                Console.WriteLine("Printing is allowed.");
-            }
-            if ((permissions & PdfWriter.ALLOW_COPY) == PdfWriter.ALLOW_COPY)
-            {
-                Console.WriteLine("Copy and extract text/images is allowed.");
-            }
-            if ((permissions & PdfWriter.ALLOW_MODIFY_CONTENTS) == PdfWriter.ALLOW_MODIFY_CONTENTS)
-            {
-                Console.WriteLine("Modifying content is allowed.");
-            }
-            if ((permissions & PdfWriter.ALLOW_FILL_IN) == PdfWriter.ALLOW_FILL_IN)
-            {
-                Console.WriteLine("Filling in form fields is allowed.");
-            }
-            if ((permissions & PdfWriter.ALLOW_SCREENREADERS) == PdfWriter.ALLOW_SCREENREADERS)
-            {
-                Console.WriteLine("Accessibility is allowed.");
-            }
-
-            // You can check other permissions as needed.
-
-            Console.WriteLine("PDF permissions read successfully.");
+            //Load the existing XFA document.
+            PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
+            //Load the existing XFA form.
+            PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
+            //Get the complete field names
+            string[] completeFieldNames = loadedForm.CompleteFieldNames;
 
 
-            // Create a PdfStamper to modify the PDF.
-            using (var pdfStamper = new PdfStamper(pdfReader, new FileStream(outputFile, FileMode.Create)))
-            {
-                // Get the form fields.
-                var formFields = pdfStamper.AcroFields;
+            Console.WriteLine(completeFieldNames.Length);
 
-                // List the field names.
-                var fieldNames = formFields.Fields.Keys;
+            foreach (string nameField in completeFieldNames) {
+                Console.WriteLine(nameField);
 
-                // Print the field names.
-                foreach (var fieldName in fieldNames)
+                PdfLoadedXfaField field = loadedForm.TryGetFieldByCompleteName(nameField);
+
+                if (field != null)
                 {
-                    Console.WriteLine("Field Name: " + fieldName);
+                    try
+                    {
+                       // (field as PdfLoadedXfaTextBoxField).Text = "dfgfdgfdgdf";
+                        // Display the field value.
+                        Console.WriteLine($"{field.Name}: {(field as PdfLoadedXfaTextBoxField).Text}");
+                    }
+                    catch (Exception e) { 
+                        Console.WriteLine($"{field.Name} no es un texto");
+                    }
 
-                    // Fill the form fields. Replace field names and values as needed.
-                    formFields.SetField(fieldName, "asdasdsadasdasfadasdfsad ");
                 }
-
+                else
+                {
+                    Console.WriteLine("Field not found.");
+                }
             }
 
-            Console.WriteLine("PDF form filled successfully.");
 
+
+            //Create memory stream.
+            FileStream docStream2 = new FileStream(outputFile, FileMode.Create, FileAccess.Write);
+            //Save the document to memory stream.
+            loadedDocument.Save(docStream2);
+            //Close the document.
+            loadedDocument.Close();
         }
 
     }
