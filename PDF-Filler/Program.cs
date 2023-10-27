@@ -12,6 +12,7 @@ using iTextSharp.text.pdf.parser;
 using System.Text.Json.Nodes;
 using System.Text.Json;
 using System.Linq.Expressions;
+using Path = System.IO.Path;
 
 class Program
 {
@@ -43,7 +44,6 @@ class Program
             PdfLoadedXfaForm loadedForm = loadedDocument.XfaForm;
             //Get the complete field names
             string[] completeFieldNames = loadedForm.CompleteFieldNames;
-
 
             Console.WriteLine(completeFieldNames.Length);
 
@@ -129,11 +129,12 @@ class Program
                 Console.WriteLine($"{key}");
             }
 
-            string jsonFilePath = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\OutputFiles\\listaCampos.json";
+            string fileName = Path.GetFileNameWithoutExtension(docStream.Name);
+
+            string jsonFilePath = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\PropsFiles\\"+ fileName + ".json";
 
             // Save the JSON to the file
             File.WriteAllText(jsonFilePath, json);
-
 
             //Create memory stream.
             FileStream docStream2 = new FileStream(outputFile, FileMode.Create, FileAccess.Write);
