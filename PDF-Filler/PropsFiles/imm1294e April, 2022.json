@@ -1,0 +1,3312 @@
+{
+  "CRCNum": {
+    "value": null,
+    "type": "texto"
+  },
+  "Age": {
+    "value": "false",
+    "type": "texto"
+  },
+  "AdultFlag": {
+    "value": "false",
+    "type": "texto"
+  },
+  "FormVersion": {
+    "value": ".ENU-10-2019",
+    "type": "texto"
+  },
+  "PrevSpouseAge": {
+    "value": "false",
+    "type": "texto"
+  },
+  "ServiceIn": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "VisaType": {
+    "values": [ "", "Single", "Multiple", "Transit" ],
+    "type": "selector multiple"
+  },
+  "UCIClientID": {
+    "value": "",
+    "type": "texto"
+  },
+  "FamilyName": {
+    "value": "",
+    "type": "texto"
+  },
+  "GivenName": {
+    "value": "",
+    "type": "texto"
+  },
+  "AliasFamilyName": {
+    "value": "",
+    "type": "texto"
+  },
+  "AliasGivenName": {
+    "value": "",
+    "type": "texto"
+  },
+  "AliasNameIndicator": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 10.8,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.160316
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 0,
+          "Top": 0,
+          "Right": 0,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 10.8,
+        "Location": {
+          "X": 43.2,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*Yes ",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 15.176694
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "Sex": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "DOBYear": {
+    "value": "",
+    "type": "texto"
+  },
+  "DOBMonth": {
+    "value": "",
+    "type": "texto"
+  },
+  "DOBDay": {
+    "value": "",
+    "type": "texto"
+  },
+  "PlaceBirthCity": {
+    "value": "",
+    "type": "texto"
+  },
+  "PlaceBirthCountry": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "Citizenship": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "Country": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "Status": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "Other": {
+    "value": "",
+    "type": "texto"
+  },
+  "FromDate": {
+    "value": "0001-01-01T00:00:00",
+    "type": "fecha"
+  },
+  "ToDate": {
+    "value": "0001-01-01T00:00:00",
+    "type": "fecha"
+  },
+  "FromYr": {
+    "value": "",
+    "type": "texto"
+  },
+  "FromMM": {
+    "value": "",
+    "type": "texto"
+  },
+  "FromDD": {
+    "value": "",
+    "type": "texto"
+  },
+  "ToYr": {
+    "value": "",
+    "type": "texto"
+  },
+  "ToMM": {
+    "value": "",
+    "type": "texto"
+  },
+  "ToDD": {
+    "value": "",
+    "type": "texto"
+  },
+  "PCRIndicator": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 10.8,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.160316
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 10.8,
+        "Location": {
+          "X": 43.2,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*Yes ",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 15.176694
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "SameAsCORIndicator": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 10.8,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.160316
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 10.8,
+        "Location": {
+          "X": 38.777954,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*Yes ",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 15.176694
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "ApplicationValidatedFlag": {
+    "value": null,
+    "type": "texto"
+  },
+  "MaritalStatus": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "DateOfMarriage": {
+    "value": "0001-01-01T00:00:00",
+    "type": "fecha"
+  },
+  "PrevMarriedIndicator": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 32.811024,
+        "Height": 10.8,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 13.665828
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 97.79584,
+        "Height": 10.8,
+        "Location": {
+          "X": 34.015747,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*Yes",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 76.97197
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "DateCalc": {
+    "value": "false",
+    "type": "texto"
+  },
+  "Year": {
+    "value": "false",
+    "type": "texto"
+  },
+  "Month": {
+    "value": "false",
+    "type": "texto"
+  },
+  "Day": {
+    "value": "false",
+    "type": "texto"
+  },
+  "PMFamilyName": {
+    "value": "",
+    "type": "texto"
+  },
+  "PMGivenName": {
+    "value": "",
+    "type": "texto"
+  },
+  "TypeOfRelationship": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "nativeLang": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "ableToCommunicate": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "lov": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "LanguageTest": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 32.811024,
+        "Height": 10.8,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 13.665828
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 38.511497,
+        "Height": 10.8,
+        "Location": {
+          "X": 34.015747,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*Yes",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 17.688189
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "PassportNum": {
+    "value": "",
+    "type": "texto"
+  },
+  "CountryofIssue": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "IssueDate": {
+    "value": "0001-01-01T00:00:00",
+    "type": "fecha"
+  },
+  "ExpiryDate": {
+    "value": "0001-01-01T00:00:00",
+    "type": "fecha"
+  },
+  "IssueYYYY": {
+    "value": "",
+    "type": "texto"
+  },
+  "IssueMM": {
+    "value": "",
+    "type": "texto"
+  },
+  "IssueDD": {
+    "value": "",
+    "type": "texto"
+  },
+  "expiryYYYY": {
+    "value": "",
+    "type": "texto"
+  },
+  "expiryMM": {
+    "value": "",
+    "type": "texto"
+  },
+  "expiryDD": {
+    "value": "",
+    "type": "texto"
+  },
+  "TaiwanPIN": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 32.811024,
+        "Height": 10.8,
+        "Location": {
+          "X": 16.404095,
+          "Y": 5.4
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 13.665828
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 38.511497,
+        "Height": 10.8,
+        "Location": {
+          "X": 33.171024,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*Yes",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 17.688189
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "IsraelPassportIndicator": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 32.811024,
+        "Height": 10.8,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 13.665828
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 38.511497,
+        "Height": 10.8,
+        "Location": {
+          "X": 34.015747,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*Yes",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 17.688189
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "natIDIndicator": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 10.8,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "* No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.854803
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 10.8,
+        "Location": {
+          "X": 32.91307,
+          "Y": 0.5159055
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "* Yes",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.855087
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "DocNum": {
+    "value": "",
+    "type": "texto"
+  },
+  "usCardIndicator": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 13.662993,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "* No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.854803
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 13.662993,
+        "Location": {
+          "X": 32.884724,
+          "Y": 0.65196854
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "* Yes",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.854803
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "POBox": {
+    "value": "",
+    "type": "texto"
+  },
+  "AptUnit": {
+    "value": "",
+    "type": "texto"
+  },
+  "StreetNum": {
+    "value": "",
+    "type": "texto"
+  },
+  "Streetname": {
+    "value": "",
+    "type": "texto"
+  },
+  "CityTown": {
+    "value": "",
+    "type": "texto"
+  },
+  "ProvinceState": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "PostalCode": {
+    "value": "",
+    "type": "texto"
+  },
+  "District": {
+    "value": "",
+    "type": "texto"
+  },
+  "SameAsMailingIndicator": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 14.400001,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.854803
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 14.400001,
+        "Location": {
+          "X": 42.462994,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*Yes ",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 15.176694
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "Type": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "CanadaUS": {
+    "value": false,
+    "type": "booleano"
+  },
+  "NumberExt": {
+    "value": "",
+    "type": "texto"
+  },
+  "NumberCountry": {
+    "value": "",
+    "type": "texto"
+  },
+  "ActualNumber": {
+    "value": null,
+    "type": "texto"
+  },
+  "AreaCode": {
+    "value": "",
+    "type": "texto"
+  },
+  "FirstThree": {
+    "value": "",
+    "type": "texto"
+  },
+  "LastFive": {
+    "value": "",
+    "type": "texto"
+  },
+  "IntlNumber": {
+    "value": "",
+    "type": "texto"
+  },
+  "Email": {
+    "value": "",
+    "type": "texto"
+  },
+  "SchoolName": {
+    "value": "",
+    "type": "texto"
+  },
+  "Program": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "Level": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "Prov": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "Address": {
+    "value": "",
+    "type": "texto"
+  },
+  "DLI": {
+    "value": "",
+    "type": "texto"
+  },
+  "StudentNo": {
+    "value": "",
+    "type": "texto"
+  },
+  "amount": {
+    "value": "",
+    "type": "texto"
+  },
+  "Funds": {
+    "value": "",
+    "type": "texto"
+  },
+  "expensesPaidBy": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "EducationIndicator": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 18,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.160316
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 18,
+        "Location": {
+          "X": 43.2,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "*Yes ",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 15.176694
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "FromYear": {
+    "value": "",
+    "type": "texto"
+  },
+  "FromMonth": {
+    "value": "",
+    "type": "texto"
+  },
+  "ToYear": {
+    "value": "",
+    "type": "texto"
+  },
+  "ToMonth": {
+    "value": "",
+    "type": "texto"
+  },
+  "FieldOfStudy": {
+    "value": "",
+    "type": "texto"
+  },
+  "School": {
+    "value": "",
+    "type": "texto"
+  },
+  "ProvState": {
+    "values": [],
+    "type": "selector multiple"
+  },
+  "Occupation": {
+    "value": "",
+    "type": "texto"
+  },
+  "Employer": {
+    "value": "",
+    "type": "texto"
+  },
+  "Choice": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 14.400001,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.854803
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 14.400001,
+        "Location": {
+          "X": 43.2,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "Yes ",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 15.176694
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "MedicalDetails": {
+    "value": "",
+    "type": "texto"
+  },
+  "backgroundInfoCalc": {
+    "value": null,
+    "type": "texto"
+  },
+  "VisaChoice1": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 14.400001,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.854803
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 14.400001,
+        "Location": {
+          "X": 43.2,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "Yes ",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 15.176694
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "VisaChoice2": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 14.400001,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.854803
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 14.400001,
+        "Location": {
+          "X": 43.2,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "Yes ",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 15.176694
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "refusedDetails": {
+    "value": "",
+    "type": "texto"
+  },
+  "VisaChoice3": {
+    "type": "selector",
+    "values": [
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 14.400001,
+        "Location": {
+          "X": 0,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "No",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 16.854803
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "No",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      },
+      {
+        "IsChecked": false,
+        "RadioButtonSize": 0,
+        "CheckedStyle": 1,
+        "RadioButtonAppearance": 1,
+        "ReadOnly": false,
+        "Width": 36,
+        "Height": 14.400001,
+        "Location": {
+          "X": 43.2,
+          "Y": 0
+        },
+        "ToolTip": null,
+        "Caption": {
+          "Text": "Yes ",
+          "Font": {
+            "Name": "TimesRoman",
+            "Size": 7,
+            "Height": 7.8120003,
+            "Style": 0,
+            "Bold": false,
+            "Italic": false,
+            "Strikeout": false,
+            "Underline": false
+          },
+          "HorizontalAlignment": 0,
+          "VerticalAlignment": 1,
+          "Position": 1,
+          "ForeColor": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 15.176694
+        },
+        "ForeColor": {
+          "IsEmpty": true,
+          "B": 0,
+          "Blue": 0,
+          "C": 0,
+          "G": 0,
+          "Green": 0,
+          "Gray": 0,
+          "K": 0,
+          "M": 0,
+          "R": 0,
+          "Red": 0,
+          "Y": 0
+        },
+        "Border": {
+          "FillColor": {},
+          "Handedness": 0,
+          "Visibility": 0,
+          "LeftEdge": null,
+          "RightEdge": null,
+          "TopEdge": null,
+          "BottomEdge": null,
+          "Color": {
+            "IsEmpty": true,
+            "B": 0,
+            "Blue": 0,
+            "C": 0,
+            "G": 0,
+            "Green": 0,
+            "Gray": 0,
+            "K": 0,
+            "M": 0,
+            "R": 0,
+            "Red": 0,
+            "Y": 0
+          },
+          "Width": 0.5,
+          "Style": 0
+        },
+        "HorizontalAlignment": 0,
+        "VerticalAlignment": 1,
+        "Name": "Yes",
+        "Margins": {
+          "Left": 2.8346457,
+          "Top": 0,
+          "Right": 2.8346457,
+          "Bottom": 0
+        },
+        "Visibility": 0
+      }
+    ],
+    "options": [ "No", "Yes" ]
+  },
+  "Details": {
+    "value": "",
+    "type": "texto"
+  },
+  "militaryServiceDetails": {
+    "value": "",
+    "type": "texto"
+  },
+  "TextField2": {
+    "value": null,
+    "type": "texto"
+  },
+  "C1CertificateIssueDate": {
+    "value": "0001-01-01T00:00:00",
+    "type": "fecha"
+  },
+  "ReaderInfo": {
+    "value": "",
+    "type": "texto"
+  },
+  "TextField1": {
+    "value": null,
+    "type": "texto"
+  }
+}
