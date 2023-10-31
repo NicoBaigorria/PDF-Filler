@@ -76,12 +76,18 @@ namespace PDF_Filler
                         switch (tipo)
                         {
                             case "PdfLoadedXfaTextBoxField":
-                                Console.WriteLine($"{field.Name}: {(field as PdfLoadedXfaTextBoxField).Text}");
+                                //Console.WriteLine($"{field.Name}: {(field as PdfLoadedXfaTextBoxField).Text}");
                                 data[field.Name] = new { value = (field as PdfLoadedXfaTextBoxField).Text, type = "texto" };
                                 break;
                             case "PdfLoadedXfaComboBoxField":
-                                List<string> fields = new List<string>((field as PdfLoadedXfaComboBoxField).Items);
                                 Console.WriteLine($"{field.Name}:");
+                                List<string> fields = new List<string>((field as PdfLoadedXfaComboBoxField).Items);
+
+                                List<string> fieldHidden = new List<string>((field as PdfLoadedXfaComboBoxField).HiddenItems);
+
+                                fields.Concat(fieldHidden);
+
+                                //Console.WriteLine($"{fields}:");
                                 data[field.Name] = new { values = fields, type = "selector multiple" };
                                 foreach (string name in fields)
                                 {
@@ -90,25 +96,25 @@ namespace PDF_Filler
                                 break;
                             case "PdfLoadedXfaRadioButtonGroup":
                                 List<PdfLoadedXfaRadioButtonField> fields2 = new List<PdfLoadedXfaRadioButtonField>((field as PdfLoadedXfaRadioButtonGroup).Fields);
-                                Console.WriteLine($"{field.Name}:");
+                                //Console.WriteLine($"{field.Name}:");
 
                                 List<string> options = new List<string>();
                                 foreach (PdfLoadedXfaRadioButtonField name in fields2)
                                 {
                                     options.Add(name.Name.ToString());
-                                    Console.WriteLine($"* {name.Name}");
+                                    //Console.WriteLine($"* {name.Name}");
                                 }
 
-                                data[field.Name] = new { type = "selector", values = fields2,options = options };
+                                data[field.Name] = new { type = "selector",values = options };
 
                                 break;
                             case "PdfLoadedXfaDateTimeField":
                                 data[field.Name] = new { value = (field as PdfLoadedXfaDateTimeField).Value, type = "fecha" };
-                                Console.WriteLine($"{field.Name}: {(field as PdfLoadedXfaDateTimeField).Value}");
+                                //Console.WriteLine($"{field.Name}: {(field as PdfLoadedXfaDateTimeField).Value}");
                                 break;
                             case "PdfLoadedXfaCheckBoxField":
                                 data[field.Name] = new { value = (field as PdfLoadedXfaCheckBoxField).IsChecked, type = "booleano" };
-                                Console.WriteLine($"{field.Name}: {(field as PdfLoadedXfaCheckBoxField).IsChecked}");
+                                //Console.WriteLine($"{field.Name}: {(field as PdfLoadedXfaCheckBoxField).IsChecked}");
                                 break;
                         }
 
@@ -130,12 +136,12 @@ namespace PDF_Filler
 
                 string fileName = Path.GetFileNameWithoutExtension(docStream.Name);
 
-                string jsonFilePath = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\PropsFiles\\" + fileName + ".json";
+                string jsonFilePath = @"C:\Users\nicob\OneDrive\Documentos\GitHub\PDF-Filler\PDF-Filler\PropsFiles\" + fileName + ".json";
 
                 // Save the JSON to the file
                 File.WriteAllText(jsonFilePath, json);
 
-                string outputFile = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\OutputFiles\\"+ fileName +".pdf"; // Replace with the path for the filled PDF.
+                string outputFile = @"C:\Users\nicob\OneDrive\Documentos\GitHub\PDF-Filler\PDF-Filler\OutputFiles\" + fileName +".pdf"; // Replace with the path for the filled PDF.
 
                 //Create memory stream.
                 FileStream docStream2 = new FileStream(outputFile, FileMode.Create, FileAccess.Write);
