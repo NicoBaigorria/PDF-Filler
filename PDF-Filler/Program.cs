@@ -24,7 +24,7 @@ class Program
         FormFiller filler = new FormFiller();
 
 
-        string folderPath = @"C:\Users\nicob\OneDrive\Documentos\GitHub\PDF-Filler\PDF-Filler\InputFiles\"; 
+        string folderPath = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\InputFiles\"; 
 
         if (Directory.Exists(folderPath))
         {

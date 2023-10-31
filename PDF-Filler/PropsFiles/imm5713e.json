@@ -1,1 +1,1 @@
-{"familyName":{"value":null,"type":"texto"},"givenName":{"value":null,"type":"texto"},"theDate":{"value":"0001-01-01T00:00:00","type":"fecha"},"TextField1":{"value":null,"type":"texto"},"DateTimeField1":{"value":"0001-01-01T00:00:00","type":"fecha"}}
+{"familyName":{"Name":null,"Type":"texto"},"givenName":{"Name":null,"Type":"texto"},"theDate":{"Name":"0001-01-01T00:00:00","Type":"fecha"},"TextField1":{"Name":null,"Type":"texto"},"DateTimeField1":{"Name":"0001-01-01T00:00:00","Type":"fecha"}}
