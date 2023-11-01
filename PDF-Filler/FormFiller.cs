@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using OfficeOpenXml;
 using Syncfusion.Pdf.Xfa;
 using System;
@@ -10,7 +11,9 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.util;
 using System.Xml.Linq;
+using static OfficeOpenXml.ExcelErrorValue;
 
 namespace PDF_Filler
 {
@@ -45,83 +48,64 @@ namespace PDF_Filler
 
                 Console.WriteLine(completeFieldNames.Length);
 
-                var data = new Dictionary<string, object>();
+                var data = new Dictionary<string, Campo>();
 
                 foreach (string nameField in completeFieldNames)
                 {
-                    //Console.WriteLine(nameField);
 
                     PdfLoadedXfaField field = loadedForm.TryGetFieldByCompleteName(nameField);
 
                     if (field != null)
                     {
-                        /*
-                        try
-                        {
-                           // (field as PdfLoadedXfaTextBoxField).Text = "dfgfdgfdgdf";
-                            // Display the field value.
-                            Console.WriteLine($"{field.Name}: {(field as PdfLoadedXfaTextBoxField).Text}");
-                        }
-                        catch (Exception e) {
-
-                            Console.WriteLine($"{field.Name}: {tipo}");
-                        }
-                        */
 
 
                         string tipo = GetFieldType(field.ToString());
 
                         listFieldsType.Add(tipo);
 
-                        //Console.WriteLine($"{field.Name}: {tipo}");
-
-                        data[field.Name] = new { Type = tipo };
+                        Campo campo = new Campo(tipo, field.Name, "", new List<string>());
 
 
                         switch (tipo)
                         {
                             case "PdfLoadedXfaTextBoxField":
-                                //Console.WriteLine($"{field.Name}: {(field as PdfLoadedXfaTextBoxField).Text}");
-                                data[field.Name] = new { Value = (field as PdfLoadedXfaTextBoxField).Text, Type = "texto" };
+                                campo.Value = (field as PdfLoadedXfaTextBoxField).Text;
+                                campo.Type = "texto" ;
                                 break;
                             case "PdfLoadedXfaComboBoxField":
-                                Console.WriteLine($"{field.Name}:");
                                 List<string> fields = new List<string>((field as PdfLoadedXfaComboBoxField).Items);
 
                                 List<string> fieldHidden = new List<string>((field as PdfLoadedXfaComboBoxField).HiddenItems);
 
                                 fields.Concat(fieldHidden);
 
-                                //Console.WriteLine($"{fields}:");
-                                data[field.Name] = new { Options = fields, Type = "selector multiple" };
-                                foreach (string name in fields)
-                                {
-                                    Console.WriteLine($"* {name}");
-                                }
+                                 campo.Options = fields;
+                                 campo.Type = "selector multiple" ;
                                 break;
                             case "PdfLoadedXfaRadioButtonGroup":
                                 List<PdfLoadedXfaRadioButtonField> fields2 = new List<PdfLoadedXfaRadioButtonField>((field as PdfLoadedXfaRadioButtonGroup).Fields);
-                                //Console.WriteLine($"{field.Name}:");
 
                                 List<string> options = new List<string>();
                                 foreach (PdfLoadedXfaRadioButtonField name in fields2)
                                 {
                                     options.Add(name.Name.ToString());
-                                    //Console.WriteLine($"* {name.Name}");
                                 }
 
-                                data[field.Name] = new { Type = "selector", Options = options };
+                                campo.Type = "selector";
+                                campo.Options = options ;
 
                                 break;
                             case "PdfLoadedXfaDateTimeField":
-                                data[field.Name] = new { Value = (field as PdfLoadedXfaDateTimeField).Value, Type = "fecha" };
-                                //Console.WriteLine($"{field.Name}: {(field as PdfLoadedXfaDateTimeField).Value}");
+                                campo.Value = (field as PdfLoadedXfaDateTimeField).Value.ToString();
+                                campo.Type = "fecha" ;
                                 break;
                             case "PdfLoadedXfaCheckBoxField":
-                                data[field.Name] = new { Value = (field as PdfLoadedXfaCheckBoxField).IsChecked, Type = "booleano" };
-                                //Console.WriteLine($"{field.Name}: {(field as PdfLoadedXfaCheckBoxField).IsChecked}");
+                                campo.Value = (field as PdfLoadedXfaCheckBoxField).IsChecked.ToString();
+                                campo.Type = "booleano" ;
                                 break;
                         }
+
+                        data[field.Name] = campo;
 
                     }
                     else
@@ -131,12 +115,6 @@ namespace PDF_Filler
                 }
 
                 string json = System.Text.Json.JsonSerializer.Serialize(data);
-
-
-                foreach (string key in listFieldsType)
-                {
-                    Console.WriteLine($"{key}");
-                }
 
 
                 string fileName = Path.GetFileNameWithoutExtension(docStream.Name);
@@ -170,7 +148,27 @@ namespace PDF_Filler
 
                     int i = 1;
 
-                    List<Campo> info = JsonConvert.DeserializeObject<List<Campo>>(json);
+                    string jsonData = JsonConvert.SerializeObject(data, Formatting.Indented);
+
+                    foreach (var prop in data) {
+                        Console.WriteLine( prop.Value );
+
+                        Campo campo = prop.Value as Campo;
+
+                        worksheet.Cells[i, 1].Value = campo.Name;
+
+                        worksheet.Cells[i, 2].Value = campo.Value;
+
+                        Console.WriteLine(campo.Options.ToString());
+
+                        worksheet.Cells[i, 3].Value = String.Join(", ", campo.Options.ToArray());
+
+                        worksheet.Cells[i, 4].Value = campo.Type;
+
+                        i++;
+
+                    }
+
 
                     /*
 
