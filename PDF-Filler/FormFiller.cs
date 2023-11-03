@@ -37,7 +37,7 @@ namespace PDF_Filler
             HashSet<string> listFieldsType = new HashSet<string>();
 
             //Load the PDF document.
-            using (FileStream docStream = new FileStream(inputFile, FileMode.Open, FileAccess.Read))
+            using (FileStream docStream = new FileStream(inputFile, FileMode.Open, FileAccess.ReadWrite))
             {
                 //Load the existing XFA document.
                 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
@@ -65,6 +65,24 @@ namespace PDF_Filler
 
                         Campo campo = new Campo(tipo, field.Name, "", new List<string>());
 
+                        if (field.Name == "Sex") {
+
+                           // (field as PdfLoadedXfaComboBoxField).Items.Add("Female");
+
+                            (field as PdfLoadedXfaComboBoxField).Items.ForEach(item =>
+                            {
+
+                                Console.WriteLine(item);
+                            });
+
+                            (field as PdfLoadedXfaComboBoxField).SelectedIndex = 1;
+
+                           // Console.WriteLine((field as PdfLoadedXfaComboBoxField).Items.ToString);
+                        }
+
+                        if (field.Name == "CRCNum") {
+                            (field as PdfLoadedXfaTextBoxField).Text = "asdasd";
+                        }
 
                         switch (tipo)
                         {
@@ -119,12 +137,12 @@ namespace PDF_Filler
 
                 string fileName = Path.GetFileNameWithoutExtension(docStream.Name);
 
-                string jsonFilePath = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\PropsFiles\" + fileName + ".json";
+                string jsonFilePath = @"C:\Users\nicob\OneDrive\Documentos\GitHub\PDF-Filler\PDF-Filler\PropsFiles\" + fileName + ".json";
 
                 // Save the JSON to the file
                 File.WriteAllText(jsonFilePath, json);
 
-                string outputFile = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\OutputFiles\" + fileName + ".pdf"; // Replace with the path for the filled PDF.
+                string outputFile = @"C:\Users\nicob\OneDrive\Documentos\GitHub\PDF-Filler\PDF-Filler\OutputFiles\" + fileName + ".pdf"; // Replace with the path for the filled PDF.
 
                 //Create memory stream.
                 FileStream docStream2 = new FileStream(outputFile, FileMode.Create, FileAccess.Write);
@@ -137,7 +155,7 @@ namespace PDF_Filler
                 
                 
                 // Create a new Excel package
-                var newFile = new FileInfo("C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx");
+                var newFile = new FileInfo("C:\\Users\\nicob\\OneDrive\\Documentos\\GitHub\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx");
                 using (var package = new ExcelPackage(newFile))
                 {
                     // Access the workbook
@@ -151,7 +169,7 @@ namespace PDF_Filler
                     string jsonData = JsonConvert.SerializeObject(data, Formatting.Indented);
 
                     foreach (var prop in data) {
-                        Console.WriteLine( prop.Value );
+                       // Console.WriteLine( prop.Value );
 
                         Campo campo = prop.Value as Campo;
 
@@ -159,7 +177,7 @@ namespace PDF_Filler
 
                         worksheet.Cells[i, 2].Value = campo.Value;
 
-                        Console.WriteLine(campo.Options.ToString());
+                      //  Console.WriteLine(campo.Options.ToString());
 
                         worksheet.Cells[i, 3].Value = String.Join(", ", campo.Options.ToArray());
 
