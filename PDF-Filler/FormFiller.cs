@@ -137,12 +137,12 @@ namespace PDF_Filler
 
                 string fileName = Path.GetFileNameWithoutExtension(docStream.Name);
 
-                string jsonFilePath = @"C:\Users\nicob\OneDrive\Documentos\GitHub\PDF-Filler\PDF-Filler\PropsFiles\" + fileName + ".json";
+                string jsonFilePath = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\PropsFiles\" + fileName + ".json";
 
                 // Save the JSON to the file
                 File.WriteAllText(jsonFilePath, json);
 
-                string outputFile = @"C:\Users\nicob\OneDrive\Documentos\GitHub\PDF-Filler\PDF-Filler\OutputFiles\" + fileName + ".pdf"; // Replace with the path for the filled PDF.
+                string outputFile = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\OutputFiles\" + fileName + ".pdf"; // Replace with the path for the filled PDF.
 
                 //Create memory stream.
                 FileStream docStream2 = new FileStream(outputFile, FileMode.Create, FileAccess.Write);
@@ -155,60 +155,47 @@ namespace PDF_Filler
                 
                 
                 // Create a new Excel package
-                var newFile = new FileInfo("C:\\Users\\nicob\\OneDrive\\Documentos\\GitHub\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx");
+               // var newFile = new FileInfo("C:\\Users\\nicob\\OneDrive\\Documentos\\GitHub\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx");
+
+
+                string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "OutputExcelFiles", fileName + ".xlsx");
+
+                // Check if the file exists or create it if it doesn't.
+                FileInfo newFile = new FileInfo(filePath);
                 using (var package = new ExcelPackage(newFile))
                 {
                     // Access the workbook
                     var workbook = package.Workbook;
-                    // Add a worksheet
-                    var worksheet = workbook.Worksheets["Sheet1"];
-                    // Add data to cells
 
-                    int i = 1;
+                    // Add a worksheet (create a new one if it doesn't exist)
+                    var worksheet = workbook.Worksheets.FirstOrDefault(ws => ws.Name == "Sheet1") ?? workbook.Worksheets.Add("Sheet1");
 
+                    int row = 1;
+
+                    // Convert data to JSON
                     string jsonData = JsonConvert.SerializeObject(data, Formatting.Indented);
 
-                    foreach (var prop in data) {
-                       // Console.WriteLine( prop.Value );
-
-                        Campo campo = prop.Value as Campo;
-
-                        worksheet.Cells[i, 1].Value = campo.Name;
-
-                        worksheet.Cells[i, 2].Value = campo.Value;
-
-                      //  Console.WriteLine(campo.Options.ToString());
-
-                        worksheet.Cells[i, 3].Value = String.Join(", ", campo.Options.ToArray());
-
-                        worksheet.Cells[i, 4].Value = campo.Type;
-
-                        i++;
-
-                    }
-
-
-                    /*
-
-                    foreach (Campo propiedad in info)
+                    // Deserialize JSON and populate the worksheet
+                    var campos = JsonConvert.DeserializeObject<Dictionary<string, Campo>>(jsonData);
+                    foreach (var kvp in campos)
                     {
-                       // Console.WriteLine(propiedad.Name);
+                        Campo campo = kvp.Value;
 
-                       // worksheet.Cells[i, 1].Value = propiedad.Name;
+                        worksheet.Cells[row, 1].Value = campo.Name;
+                        worksheet.Cells[row, 2].Value = campo.Value;
+                        worksheet.Cells[row, 3].Value = string.Join(", ", campo.Options);
+                        worksheet.Cells[row, 4].Value = campo.Type;
 
-                        i++;
+                        row++;
                     }
-                    */
 
                     // Save the package
                     package.Save();
-
                 }
-                
 
+                Console.WriteLine($"Excel file '{filePath}' created or updated successfully.");
             }
-
         }
 
-    }
+}
 }
