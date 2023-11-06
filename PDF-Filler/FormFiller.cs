@@ -75,8 +75,6 @@ namespace PDF_Filler
                             case "PdfLoadedXfaComboBoxField":
                                 List<string> fields = new List<string>((field as PdfLoadedXfaComboBoxField).Items);
 
-                               // (field as PdfLoadedXfaComboBoxField).SelectedIndex = 0;
-
                                  campo.Options = fields;
                                  campo.Type = "selector multiple" ;
                                 break;
