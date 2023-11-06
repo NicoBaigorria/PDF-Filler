@@ -37,7 +37,7 @@ namespace PDF_Filler
             HashSet<string> listFieldsType = new HashSet<string>();
 
             //Load the PDF document.
-            using (FileStream docStream = new FileStream(inputFile, FileMode.Open, FileAccess.ReadWrite))
+            using (FileStream docStream = new FileStream(inputFile, FileMode.Open, FileAccess.Read))
             {
                 //Load the existing XFA document.
                 PdfLoadedXfaDocument loadedDocument = new PdfLoadedXfaDocument(docStream);
@@ -65,24 +65,6 @@ namespace PDF_Filler
 
                         Campo campo = new Campo(tipo, field.Name, "", new List<string>());
 
-                        if (field.Name == "Sex") {
-
-                           // (field as PdfLoadedXfaComboBoxField).Items.Add("Female");
-
-                            (field as PdfLoadedXfaComboBoxField).Items.ForEach(item =>
-                            {
-
-                                Console.WriteLine(item);
-                            });
-
-                            (field as PdfLoadedXfaComboBoxField).SelectedIndex = 1;
-
-                           // Console.WriteLine((field as PdfLoadedXfaComboBoxField).Items.ToString);
-                        }
-
-                        if (field.Name == "CRCNum") {
-                            (field as PdfLoadedXfaTextBoxField).Text = "asdasd";
-                        }
 
                         switch (tipo)
                         {
@@ -93,9 +75,7 @@ namespace PDF_Filler
                             case "PdfLoadedXfaComboBoxField":
                                 List<string> fields = new List<string>((field as PdfLoadedXfaComboBoxField).Items);
 
-                                List<string> fieldHidden = new List<string>((field as PdfLoadedXfaComboBoxField).HiddenItems);
-
-                                fields.Concat(fieldHidden);
+                               // (field as PdfLoadedXfaComboBoxField).SelectedIndex = 0;
 
                                  campo.Options = fields;
                                  campo.Type = "selector multiple" ;
@@ -155,14 +135,17 @@ namespace PDF_Filler
                 
                 
                 // Create a new Excel package
+
                // var newFile = new FileInfo("C:\\Users\\nicob\\OneDrive\\Documentos\\GitHub\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx");
 
 
-                string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "OutputExcelFiles", fileName + ".xlsx");
+                string filePath = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx";
+
+                Console.WriteLine(filePath);
 
                 // Check if the file exists or create it if it doesn't.
                 FileInfo newFile = new FileInfo(filePath);
-                using (var package = new ExcelPackage())
+                using (var package = new ExcelPackage(newFile))
                 {
                     // Access the workbook
                     var workbook = package.Workbook;
@@ -170,27 +153,32 @@ namespace PDF_Filler
                     // Add a worksheet (create a new one if it doesn't exist)
                     var worksheet = workbook.Worksheets.FirstOrDefault(ws => ws.Name == "Sheet1") ?? workbook.Worksheets.Add("Sheet1");
 
-                    int row = 1;
+                    int i = 1;
 
                     // Convert data to JSON
                     string jsonData = JsonConvert.SerializeObject(data, Formatting.Indented);
 
-                    // Deserialize JSON and populate the worksheet
-                    var campos = JsonConvert.DeserializeObject<Dictionary<string, Campo>>(jsonData);
-                    foreach (var kvp in campos)
-                    {
-                        Campo campo = kvp.Value;
 
-                        worksheet.Cells[row, 1].Value = campo.Name;
-                        worksheet.Cells[row, 2].Value = campo.Value;
-                        worksheet.Cells[row, 3].Value = string.Join(", ", campo.Options);
-                        worksheet.Cells[row, 4].Value = campo.Type;
+                    foreach (var prop in data) {
 
-                        row++;
+                        Campo campo = prop.Value as Campo;
+
+                        worksheet.Cells[i, 1].Value = campo.Name;
+
+                        worksheet.Cells[i, 2].Value = campo.Value;
+
+                        campo.Options.ForEach(option => Console.WriteLine(option));
+
+                        worksheet.Cells[i, 3].Value = String.Join(", ", campo.Options.ToArray());
+
+                        worksheet.Cells[i, 4].Value = campo.Type;
+
+                        i++;
+
                     }
 
                     // Save the package
-                    package.Save(filePath);
+                    package.Save();
                 }
 
                 Console.WriteLine($"Excel file '{filePath}' created or updated successfully.");
