@@ -162,7 +162,7 @@ namespace PDF_Filler
 
                 // Check if the file exists or create it if it doesn't.
                 FileInfo newFile = new FileInfo(filePath);
-                using (var package = new ExcelPackage(newFile))
+                using (var package = new ExcelPackage())
                 {
                     // Access the workbook
                     var workbook = package.Workbook;
@@ -190,7 +190,7 @@ namespace PDF_Filler
                     }
 
                     // Save the package
-                    package.Save();
+                    package.Save(filePath);
                 }
 
                 Console.WriteLine($"Excel file '{filePath}' created or updated successfully.");
