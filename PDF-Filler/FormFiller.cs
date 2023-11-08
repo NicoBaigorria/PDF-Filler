@@ -13,6 +13,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.util;
 using System.Xml.Linq;
+using System.Xml.XPath;
 using static OfficeOpenXml.ExcelErrorValue;
 
 namespace PDF_Filler
@@ -71,11 +72,40 @@ namespace PDF_Filler
                             case "PdfLoadedXfaTextBoxField":
                                 campo.Value = (field as PdfLoadedXfaTextBoxField).Text;
                                 campo.Type = "texto" ;
+
+                                if (field.Name == "FamilyName")
+                                {
+                                    try
+                                    {
+                                        (field as PdfLoadedXfaTextBoxField).Text = "sadsa";
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        Console.WriteLine("error al editar campo de texto" + field.Name);
+                                    }
+                                }
                                 break;
                             case "PdfLoadedXfaComboBoxField":
                                 List<string> fields = new List<string>((field as PdfLoadedXfaComboBoxField).Items);
 
-                                 campo.Options = fields;
+                                if (field != null)
+                                {
+                                    /*
+                                    string fieldValue = (field as PdfLoadedXfaComboBoxField).;
+
+                                    XDocument xfaData = XDocument.Parse(fieldValue);
+
+                                    var optionsField = xfaData.XPathSelectElements("//option");
+
+                                    foreach (var option in optionsField)
+                                    {
+                                        string optionText = option.Value;
+                                        Console.WriteLine(optionText);
+                                    }
+                                    */
+                                }
+
+                                campo.Options = fields;
                                  campo.Type = "selector multiple" ;
                                 break;
                             case "PdfLoadedXfaRadioButtonGroup":
