@@ -1,0 +1,75 @@
+<xfa:datasets xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/">
+  <xfa:data>
+    <IMM_5713>
+      <page1>
+        <header xfa:dataNode="dataGroup" />
+        <subNo1>
+          <familyName />
+          <givenName />
+          <subNo2>
+            <dateBox>
+              <theDate />
+            </dateBox>
+          </subNo2>
+        </subNo1>
+        <subNo3>
+          <subHeader xfa:dataNode="dataGroup" />
+          <subRow1>
+            <TextField1 />
+            <TextField1 />
+            <DateTimeField1 />
+          </subRow1>
+          <subRow2>
+            <TextField1 />
+            <TextField1 />
+            <DateTimeField1 />
+          </subRow2>
+          <subRow3>
+            <TextField1 />
+            <TextField1 />
+            <DateTimeField1 />
+          </subRow3>
+          <subRow4>
+            <TextField1 />
+            <TextField1 />
+            <DateTimeField1 />
+          </subRow4>
+          <subRow5>
+            <TextField1 />
+            <TextField1 />
+            <DateTimeField1 />
+          </subRow5>
+        </subNo3>
+        <subB>
+          <subHeader xfa:dataNode="dataGroup" />
+          <subRow1>
+            <TextField1 />
+            <DateTimeField1 />
+          </subRow1>
+          <subRow2>
+            <TextField1 />
+            <DateTimeField1 />
+          </subRow2>
+          <subRow3>
+            <TextField1 />
+            <DateTimeField1 />
+          </subRow3>
+          <subRow4>
+            <TextField1 />
+            <DateTimeField1 />
+          </subRow4>
+          <subRow5>
+            <TextField1 />
+            <DateTimeField1 />
+          </subRow5>
+        </subB>
+        <subC>
+          <dateBox>
+            <theDate />
+          </dateBox>
+        </subC>
+      </page1>
+      <formNum>IMM 5713 (12-2012) E</formNum>
+    </IMM_5713>
+  </xfa:data>
+</xfa:datasets>

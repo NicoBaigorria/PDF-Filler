@@ -90,20 +90,22 @@ namespace PDF_Filler
 
                                 if (field != null)
                                 {
-                                    /*
-                                    string fieldValue = (field as PdfLoadedXfaComboBoxField).;
 
-                                    XDocument xfaData = XDocument.Parse(fieldValue);
-
-                                    var optionsField = xfaData.XPathSelectElements("//option");
-
-                                    foreach (var option in optionsField)
+                                    foreach (var option in fields)
                                     {
-                                        string optionText = option.Value;
+                                        string optionText = option;
                                         Console.WriteLine(optionText);
                                     }
-                                    */
+
+                                    if (field.Name == "Sex") {
+                                        Console.WriteLine((field as PdfLoadedXfaComboBoxField).SelectedValue );
+
+                                       // (field as PdfLoadedXfaComboBoxField).SelectedValue = "Female";
+
+                                        Console.WriteLine((field as PdfLoadedXfaComboBoxField).Items.Capacity);
+                                    }
                                 }
+
 
                                 campo.Options = fields;
                                  campo.Type = "selector multiple" ;
@@ -160,11 +162,16 @@ namespace PDF_Filler
                 //Close the document.
                 loadedDocument.Close();
 
-                
-                
+                string outputFileXml = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\OutputFiles\" + fileName + ".xml";
+
+                FileStream docStream3 = new FileStream(outputFileXml, FileMode.Create, FileAccess.Write);
+
+                loadedForm.ExportXfaData(docStream3);
+
+
                 // Create a new Excel package
 
-               // var newFile = new FileInfo("C:\\Users\\nicob\\OneDrive\\Documentos\\GitHub\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx");
+                // var newFile = new FileInfo("C:\\Users\\nicob\\OneDrive\\Documentos\\GitHub\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx");
 
 
                 string filePath = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx";
