@@ -1,0 +1,48 @@
+{
+  "studypermit": [
+    "IMM1294ApplicationforaStudyPermitfromOutsideofCanada",
+    "IMM5645E-FamilyInformationForm"
+    "IMM5713eUseofaFamilyMember(soloconfamilia)",
+    "IMM5476-UseofrepresentativeFormulario-PreguntasdeSeguridad(PlanB)",
+    "IMM1295E-ApplicationforaWorkPermitfromOutsideofCanada",
+    "IMM5645E-FamilyInformationForm",
+    "IMM5476-Useofrepresentative",
+    "IMM5257E-ApplicationforTemporaryResidentVisa",
+    "IMM1294E-ApplicationforaStudyPermitfromOutsideofCanadasieldependientevaaestudiar.",
+    "IMM5257E-ApplicationforTemporaryResidentVisasieldependientevacomovisitante.",
+    "IMM5645E-FamilyInformationForm",
+    "IMM5476-Useofrepresentative"
+  ],
+  "visitorvisa": [
+    "IMM5713eUseofaFamilyMember",
+    "IMM5257eTRV"
+    "IMM5645E-FamilyInformationForm",
+    "IMM5476-Useofrepresentative"
+  ],
+  "trv": [
+    "IMM5257eTRV",
+    "IMM5476-Useofrepresentative"
+  ],
+  "extensiones": [
+    "IMM5709eApplicationtoextendmystayasastudent",
+    "IMM5476-Useofrepresentative",
+    "IMM5713eUseofaFamilyMember",
+    "IMM5710eApplicationtoextendmystayasaworker",
+    "IMM5709eApplicationtoextendmystayasastudent",
+    "IMM5708eApplicationtoextendmystayasavisitor",
+  ],
+  "workpermitout": [
+    "IMM1295E-ApplicationforaWorkPermitfromOutsideofCanada",
+    "IMM5645E-FamilyInformationForm",
+    "IMM5476-Useofrepresentative"
+  ],
+  "workpermitin": [
+    "IMM5710eApplicationtoextendmystayasaworker",
+    "IMM5645E-FamilyInformationForm",
+    "IMM5476-Useofrepresentative"
+  ],
+  "visitorrecord": [
+    "IMM5708eApplicationtoextendmystayasavisitor",
+    "IMM5476-Useofrepresentative"
+  ]
+}
