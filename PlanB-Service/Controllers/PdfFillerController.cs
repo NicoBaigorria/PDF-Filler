@@ -11,9 +11,9 @@ namespace PlanB_Service.Controllers
     {
         // GET: api/<PdfFillerController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new string[] { "value1", "value2" };
+            return "esta es la informacion de la api PdfFiller";
         }
 
         /*
