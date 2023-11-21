@@ -1,5 +1,8 @@
 ﻿
+using Newtonsoft.Json;
+using OfficeOpenXml;
 using Syncfusion.Pdf.Parsing;
+using Syncfusion.Pdf.Xfa;
 
 namespace PDF_Filler
 {
@@ -10,26 +13,58 @@ namespace PDF_Filler
         public void Process(string inputFile)
         {
 
-            byte[] pdfBytes = File.ReadAllBytes(inputFile);
-
-
-            using (PdfLoadedDocument loadedDocument = new PdfLoadedDocument(pdfBytes))
+            try
             {
-                // Create an instance of PdfLoadedComboBoxField
-                foreach (var formField in loadedDocument.Form.Fields)
+                using (FileStream docStream = new FileStream(inputFile, FileMode.Open, FileAccess.Read))
                 {
-                    if (formField is PdfLoadedComboBoxField comboBoxField)
+                    using (PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream))
                     {
-                        // Display the ComboBox field name
-                        Console.WriteLine("ComboBox Field Name: " + comboBoxField.Name);
-
-                        // Display all options of the ComboBox field
-                        foreach (var item in comboBoxField.Items)
+                        // Check if the PDF has AcroForms
+                        if (loadedDocument.Form != null)
                         {
-                            Console.WriteLine("  Option: " + item.ToString());
+
+                            // Check if the PDF has XFA form
+
+                            // Read XFA form fields
+                            PdfLoadedXfaDocument xfaDoc = new PdfLoadedXfaDocument(docStream);
+
+                            PdfLoadedXfaForm loadedForm = xfaDoc.XfaForm;
+
+                            string[] completeFieldNames = loadedForm.CompleteFieldNames;
+
+                            var data = new Dictionary<string, Campo>();
+
+                            foreach (string nameField in completeFieldNames)
+                            {
+                                PdfLoadedXfaField field = loadedForm.TryGetFieldByCompleteName(nameField);
+
+                                if (field != null)
+                                {
+                                    Console.WriteLine($"XFA Form Field: {field.Name}");
+                                }
+                            }
+
                         }
-                    }
+                        else
+                        {
+
+                            Console.WriteLine(inputFile + " is acroform ");
+                            // Read AcroForm fields
+                            foreach (PdfLoadedField field in loadedDocument.Form.Fields)
+                            {
+                                Console.WriteLine($"AcroForm Field: {field.Name}");
+                            }
+
+                        }
+
+                        }
+                        
+                   
                 }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error: {e.Message}");
             }
 
         }
