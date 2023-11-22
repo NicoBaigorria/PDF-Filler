@@ -18,9 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="OutputExcelFiles\" />
+    <Folder Include="OutputFiles\Xlsx\" />
+    <Folder Include="OutputFiles\Xml\" />
+    <Folder Include="OutputFiles\Pdf\" />
     <Folder Include="PropsFiles\" />
-    <Folder Include="OutputFiles\" />
   </ItemGroup>
 
 </Project>

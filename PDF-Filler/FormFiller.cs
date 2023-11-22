@@ -94,10 +94,15 @@ namespace PDF_Filler
                                     foreach (var option in fields)
                                     {
                                         string optionText = option;
-                                        Console.WriteLine(optionText);
+                                        Console.WriteLine("opcion: "+optionText);
                                     }
 
                                     if (field.Name == "Sex") {
+
+                                        //(field as PdfLoadedXfaComboBoxField).Items.Add("asdsad");
+
+                                       // (field as PdfLoadedXfaComboBoxField).SelectedIndex = 0;
+
                                         Console.WriteLine((field as PdfLoadedXfaComboBoxField).SelectedValue );
 
                                        // (field as PdfLoadedXfaComboBoxField).SelectedValue = "Female";
@@ -152,7 +157,7 @@ namespace PDF_Filler
                 // Save the JSON to the file
                 File.WriteAllText(jsonFilePath, json);
 
-                string outputFile = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\OutputFiles\" + fileName + ".pdf"; // Replace with the path for the filled PDF.
+                string outputFile = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\OutputFiles\Pdf\" + fileName + ".pdf"; // Replace with the path for the filled PDF.
 
                 //Create memory stream.
                 FileStream docStream2 = new FileStream(outputFile, FileMode.Create, FileAccess.Write);
@@ -162,7 +167,7 @@ namespace PDF_Filler
                 //Close the document.
                 loadedDocument.Close();
 
-                string outputFileXml = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\OutputFiles\" + fileName + ".xml";
+                string outputFileXml = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\OutputFiles\Xml\" + fileName + ".xml";
 
                 FileStream docStream3 = new FileStream(outputFileXml, FileMode.Create, FileAccess.Write);
 
@@ -174,7 +179,7 @@ namespace PDF_Filler
                 // var newFile = new FileInfo("C:\\Users\\nicob\\OneDrive\\Documentos\\GitHub\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx");
 
 
-                string filePath = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx";
+                string filePath = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\OutputFiles\\Xlsx\\" + fileName + ".xlsx";
 
                 Console.WriteLine(filePath);
 

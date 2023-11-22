@@ -21,7 +21,7 @@ class Program
     static void Main()
     {
 
-        FormFiller3 filler = new FormFiller3();
+        FormFiller filler = new FormFiller();
 
 
         string folderPath = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\InputFiles\"; 
