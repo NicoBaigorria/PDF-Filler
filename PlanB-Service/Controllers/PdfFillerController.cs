@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Reflection.Metadata.Ecma335;
 using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,8 +15,24 @@ namespace PlanB_Service.Controllers
         [HttpGet]
         public string Get()
         {
-            return "esta es la informacion de la api PdfFiller";
+            string json = @"
+            {
+            ""results"": [
+                {
+                    ""properties"": [
+                        {
+                            ""label"": ""First name"",
+                            ""dataType"": ""STRING"",
+                            ""value"": ""Tim Robinson""
+                        }
+                    ]
+                }
+            ]
+        }";
+
+            return json;
         }
+
 
         /*
         // GET api/<PdfFillerController>/5
@@ -31,7 +49,7 @@ namespace PlanB_Service.Controllers
         {
             var body = new StreamReader(Request.Body);
 
-            return "asdsadas"+ customer.ToString();
+            return "asdsadas" + customer.ToString();
         }
 
     }

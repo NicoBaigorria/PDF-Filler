@@ -23,7 +23,6 @@ class Program
 
         FormFiller3 filler = new FormFiller3();
 
-
         string folderPath = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\InputFiles\"; 
 
         if (Directory.Exists(folderPath))
