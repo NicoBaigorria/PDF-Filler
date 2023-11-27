@@ -1,4 +1,7 @@
 ﻿
+using iText.Forms;
+using iText.Forms.Xfa;
+using iText.Kernel.Pdf;
 using Newtonsoft.Json;
 using OfficeOpenXml;
 using Syncfusion.Pdf.Parsing;
@@ -15,50 +18,18 @@ namespace PDF_Filler
 
             try
             {
-                using (FileStream docStream = new FileStream(inputFile, FileMode.Open, FileAccess.Read))
+
+                if (IsXfaForm(inputFile))
                 {
-                    using (PdfLoadedDocument loadedDocument = new PdfLoadedDocument(docStream))
-                    {
-                        // Check if the PDF has AcroForms
-                        if (loadedDocument.Form != null)
-                        {
-
-                            // Check if the PDF has XFA form
-
-                            // Read XFA form fields
-                            PdfLoadedXfaDocument xfaDoc = new PdfLoadedXfaDocument(docStream);
-
-                            PdfLoadedXfaForm loadedForm = xfaDoc.XfaForm;
-
-                            string[] completeFieldNames = loadedForm.CompleteFieldNames;
-
-                            var data = new Dictionary<string, Campo>();
-
-                            foreach (string nameField in completeFieldNames)
-                            {
-                                PdfLoadedXfaField field = loadedForm.TryGetFieldByCompleteName(nameField);
-
-                                if (field != null)
-                                {
-                                    Console.WriteLine($"XFA Form Field: {field.Name}");
-                                }
-                            }
-
-                        }
-                        else
-                        {
-
-                            Console.WriteLine(inputFile + " is acroform ");
-                            // Read AcroForm fields
-                            foreach (PdfLoadedField field in loadedDocument.Form.Fields)
-                            {
-                                Console.WriteLine($"AcroForm Field: {field.Name}");
-                            }
-
-                        }
-
-                        }
-                        
+                    Console.WriteLine("The PDF contains XFA form.");
+                }
+                else if (IsAcroForm(inputFile))
+                {
+                    Console.WriteLine("The PDF contains AcroForm.");
+                }
+                else
+                {
+                    Console.WriteLine("The PDF does not contain XFA or AcroForm.");
                 }
             }
             catch (Exception e)
@@ -66,6 +37,31 @@ namespace PDF_Filler
                 Console.WriteLine($"Error: {e.Message}");
             }
 
+        }
+
+        static bool IsXfaForm(string filePath)
+        {
+            using (PdfReader reader = new PdfReader(filePath))
+            {
+                using (PdfDocument pdfDoc = new PdfDocument(reader))
+                {
+                    PdfAcroForm acroForm = PdfAcroForm.GetAcroForm(pdfDoc, true);
+                    XfaForm xfaForm = acroForm.GetXfaForm();
+                    return xfaForm != null;
+                }
+            }
+        }
+
+        static bool IsAcroForm(string filePath)
+        {
+            using (PdfReader reader = new PdfReader(filePath))
+            {
+                using (PdfDocument pdfDoc = new PdfDocument(reader))
+                {
+                    PdfAcroForm acroForm = PdfAcroForm.GetAcroForm(pdfDoc, true);
+                    return acroForm.GetFormFields().Count > 0;
+                }
+            }
         }
     }
 }

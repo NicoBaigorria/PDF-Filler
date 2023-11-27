@@ -1,0 +1,110 @@
+<xfa:datasets xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/">
+  <xfa:data>
+    <IMM_5476>
+      <Page1>
+        <appoint>0</appoint>
+        <cancel>0</cancel>
+        <SectionA>
+          <familyName>
+            <body xmlns="http://www.w3.org/1999/xhtml">
+              <p style="margin-top:0in;margin-bottom:0in;">
+                <span style="xfa-spacerun:yes"> </span>
+              </p>
+            </body>
+          </familyName>
+          <givenName />
+          <DOB />
+          <office />
+          <application />
+          <UCI />
+        </SectionA>
+        <SectionB>
+          <List>
+            <S1 xfa:dataNode="dataGroup" />
+            <S2 xfa:dataNode="dataGroup" />
+            <S3 xfa:dataNode="dataGroup" />
+          </List>
+          <familyName>
+            <body xmlns="http://www.w3.org/1999/xhtml">
+              <p style="margin-top:0in;margin-bottom:0in;">
+                <span style="xfa-spacerun:yes"> </span>
+              </p>
+            </body>
+          </familyName>
+          <givenName />
+          <question6>
+            <questionI>
+              <uncompensated />
+              <membership />
+              <otherRep />
+              <province />
+            </questionI>
+            <questionII>
+              <compensated />
+              <ICCRCMember />
+              <province />
+              <membership />
+              <quebecLaw />
+            </questionII>
+          </question6>
+          <question7>
+            <organization />
+            <lawyer />
+            <membershipID />
+            <unit />
+            <streetNo />
+            <streetName />
+            <city />
+            <province />
+            <country />
+            <postalcode />
+            <phoneCountryCode />
+            <phoneNumber />
+            <faxCountryCode />
+            <faxNumber />
+            <email />
+          </question7>
+          <question8>
+            <List>
+              <s1 xfa:dataNode="dataGroup" />
+              <s2 xfa:dataNode="dataGroup" />
+            </List>
+            <repSignature />
+            <dateSigned />
+          </question8>
+        </SectionB>
+        <sectionC>
+          <familyName>
+            <body xmlns="http://www.w3.org/1999/xhtml">
+              <p style="margin-top:0in;margin-bottom:0in;">
+                <span style="xfa-spacerun:yes"> </span>
+              </p>
+            </body>
+          </familyName>
+          <givenName />
+          <organization />
+        </sectionC>
+        <sectionD>
+          <List>
+            <s1 xfa:dataNode="dataGroup" />
+            <s2 xfa:dataNode="dataGroup" />
+          </List>
+          <signatrureApplicant />
+          <dateApplicantSigned />
+          <spouseSignature />
+          <dateSpouseSigned />
+        </sectionD>
+        <disclaimer xfa:dataNode="dataGroup" />
+      </Page1>
+      <num>1</num>
+      <totPage>3</totPage>
+      <FormNumber>IMM 5476 (11-2021) E</FormNumber>
+      <num>2</num>
+      <totPage>3</totPage>
+      <FormNumber>IMM 5476 (11-2021) E</FormNumber>
+      <num>3</num>
+      <totPage>3</totPage>
+      <FormNumber>IMM 5476 (11-2021) E</FormNumber>
+    </IMM_5476>
+  </xfa:data>
+</xfa:datasets>

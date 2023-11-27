@@ -1,6 +1,6 @@
 <xfa:datasets xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/">
   <LOVFile>
-    <LOV generated="2019-04-18 14:46:48">
+    <LOV generated="2019-07-10 17:46:04">
       <AbleCommunicateEnglishOrFrenchList>
         <AbleCommunicateEnglishOrFrench lic="" />
         <AbleCommunicateEnglishOrFrench lic="English">English</AbleCommunicateEnglishOrFrench>
@@ -2725,8 +2725,8 @@
           <City lic="3789">Teviotdale</City>
           <City lic="3227">Thamesford, ON</City>
           <City lic="3788">Thamesville</City>
+          <City lic="3790">Thedford, ON</City>
           <City lic="3792">Thessalon</City>
-          <City lic="3790">Thetford, ON</City>
           <City lic="3794">Thornbury</City>
           <City lic="3795">Thorndale</City>
           <City lic="3793">Thornhill</City>
@@ -5093,6 +5093,7 @@
         <CorrespondenceItem lic="1013">PR Card - Colour</CorrespondenceItem>
         <CorrespondenceItem lic="1024">COPR</CorrespondenceItem>
         <CorrespondenceItem lic="1284">USA Visa</CorrespondenceItem>
+        <CorrespondenceItem lic="1504">Alien Passport Non-Citizens</CorrespondenceItem>
         <CorrespondenceItem lic="1011">IMM5455</CorrespondenceItem>
         <CorrespondenceItem lic="1290">Schedule A Online</CorrespondenceItem>
         <CorrespondenceItem lic="717">ATIP-SPR</CorrespondenceItem>
@@ -5445,7 +5446,7 @@
         <CorrespondenceItem lic="09">Employment records</CorrespondenceItem>
         <CorrespondenceItem lic="10">Offer of employment</CorrespondenceItem>
         <CorrespondenceItem lic="11">Professional qualifications</CorrespondenceItem>
-        <CorrespondenceItem lic="12">LMO</CorrespondenceItem>
+        <CorrespondenceItem lic="12">LMIA</CorrespondenceItem>
         <CorrespondenceItem lic="13">AEO</CorrespondenceItem>
         <CorrespondenceItem lic="14">IELTS / CELPIP</CorrespondenceItem>
         <CorrespondenceItem lic="15">TEF</CorrespondenceItem>
@@ -7553,6 +7554,7 @@
         <CountryTravelDocument lic="037">ESP (Spain)</CountryTravelDocument>
         <CountryTravelDocument lic="018">EST (Estonia)</CountryTravelDocument>
         <CountryTravelDocument lic="161">ETH (Ethiopia)</CountryTravelDocument>
+        <CountryTravelDocument lic="982">EUE (European Union)</CountryTravelDocument>
         <CountryTravelDocument lic="021">FIN (Finland)</CountryTravelDocument>
         <CountryTravelDocument lic="801">FJI (Fiji)</CountryTravelDocument>
         <CountryTravelDocument lic="022">FRA (France)</CountryTravelDocument>
@@ -8352,8 +8354,8 @@
         <MaritalStatus lic="09">Annulled Marriage</MaritalStatus>
         <MaritalStatus lic="03">Common-Law</MaritalStatus>
         <MaritalStatus lic="04">Divorced</MaritalStatus>
-        <MaritalStatus lic="05">Legally Separated</MaritalStatus>
         <MaritalStatus lic="01">Married</MaritalStatus>
+        <MaritalStatus lic="05">Separated</MaritalStatus>
         <MaritalStatus lic="02">Single</MaritalStatus>
         <MaritalStatus lic="00">Unknown</MaritalStatus>
         <MaritalStatus lic="06">Widowed</MaritalStatus>
@@ -9343,6 +9345,7 @@
         <VisaOffice lic="4311">Regina IRCC</VisaOffice>
         <VisaOffice lic="6120">Riyadh</VisaOffice>
         <VisaOffice lic="6034">Rome</VisaOffice>
+        <VisaOffice lic="2554">RPC</VisaOffice>
         <VisaOffice lic="1697">Saint John IRCC</VisaOffice>
         <VisaOffice lic="6064">Santiago</VisaOffice>
         <VisaOffice lic="6071">Santo Domingo</VisaOffice>
@@ -9414,7 +9417,7 @@
         <WorkPermitTypeInLand lic="LMOS">Labour Market Impact Assessment Stream</WorkPermitTypeInLand>
         <WorkPermitTypeInLand lic="LCP">Live-in Caregiver Program</WorkPermitTypeInLand>
         <WorkPermitTypeInLand lic="OWP">Open Work Permit</WorkPermitTypeInLand>
-        <WorkPermitTypeInLand lic="VWOWP">Open work permit for vulnerable workers</WorkPermitTypeInLand>
+        <WorkPermitTypeInLand lic="VWOWP">Open Work Permit for Vulnerable Workers</WorkPermitTypeInLand>
         <WorkPermitTypeInLand lic="Other">Other</WorkPermitTypeInLand>
         <WorkPermitTypeInLand lic="PGWP">Post Graduation Work Permit</WorkPermitTypeInLand>
         <WorkPermitTypeInLand lic="SBC">Start-up Business Class</WorkPermitTypeInLand>
@@ -9429,7 +9432,7 @@
         </Header>
         <Age />
         <AdultFlag>false</AdultFlag>
-        <FormVersion>.ENU-06-2019</FormVersion>
+        <FormVersion>.ENU-10-2019</FormVersion>
         <PrevAge />
         <PersonalDetails>
           <ApplicationValidatedFlag />
@@ -9443,7 +9446,7 @@
           <ApplyingFor>
             <RestoreStat>0</RestoreStat>
             <Extend>0</Extend>
-            <HiddenStat />
+            <NewEmployer>0</NewEmployer>
             <TRP>0</TRP>
           </ApplyingFor>
           <Name>
@@ -9755,44 +9758,37 @@
             <docNum />
           </PrevDocNum>
         </ComingIntoCda>
-        <DetailsOfStudy>
-          <SchoolDetails>
-            <SchoolName />
+        <DetailsOfWork>
+          <Purpose>
+            <Type />
+            <Other />
+          </Purpose>
+          <Employer>
+            <Name />
+            <Addr />
+          </Employer>
+          <Location>
             <Prov />
-            <CityTown />
-            <Address />
-            <DLI />
-            <StudentNo />
-            <StudyTerm>
-              <FromDate />
-              <ToDate />
-            </StudyTerm>
-            <EduCosts>
-              <Tuition />
-              <Room />
-              <OtherCosts />
-            </EduCosts>
-            <Funds>
-              <ExpPaidBy />
-              <FundsAvail />
-              <Other />
-            </Funds>
-            <StudyMajor>
-              <Program />
-              <Level />
-            </StudyMajor>
-          </SchoolDetails>
-        </DetailsOfStudy>
-        <WorkPermit>
-          <a>
-            <WorkPermit />
-          </a>
-          <PermitType />
-        </WorkPermit>
-        <CAQ>
-          <CertNum />
-          <CertExpiry />
-        </CAQ>
+            <City />
+            <Addr />
+          </Location>
+          <Occupation>
+            <Job />
+            <Desc />
+          </Occupation>
+          <Duration>
+            <FromDate />
+            <ToDate />
+            <LMO />
+          </Duration>
+          <CAQ>
+            <CertNum />
+            <CertExpiry />
+          </CAQ>
+          <ProvNominee>
+            <ProvNominee />
+          </ProvNominee>
+        </DetailsOfWork>
         <Education>
           <EducationIndicator />
           <EduLine1>
@@ -9833,28 +9829,28 @@
               <ProvState />
             </Line2>
           </EmpRec1>
-          <EmpRec2>
-            <Line1>
-              <From>
-                <YYYY />
-                <MM />
-              </From>
-              <Occupation />
-              <Employer />
-            </Line1>
-            <Line2>
-              <To>
-                <YYYY />
-                <MM />
-              </To>
-              <City />
-              <Country />
-              <ProvState />
-            </Line2>
-          </EmpRec2>
         </Employment>
       </Page3>
       <Page4>
+        <EmpRec2>
+          <Line1>
+            <From>
+              <YYYY />
+              <MM />
+            </From>
+            <Occupation />
+            <Employer />
+          </Line1>
+          <Line2>
+            <To>
+              <YYYY />
+              <MM />
+            </To>
+            <City />
+            <Country />
+            <ProvState />
+          </Line2>
+        </EmpRec2>
         <EmpRec3>
           <Line1>
             <From>
@@ -9885,8 +9881,8 @@
           <PrevApplied>
             <qANY />
             <qBNY />
-            <qCNY />
             <refusedDetails />
+            <qCNY />
           </PrevApplied>
           <Criminal>
             <qANY />
@@ -9907,8 +9903,8 @@
           </Illtreatment>
         </BackgroundInfo>
         <Signature>
-          <TextField2 />
           <C1CertificateIssueDate />
+          <TextField2 />
           <FutureComm />
         </Signature>
         <Important xfa:dataNode="dataGroup" />
