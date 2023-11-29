@@ -15,22 +15,35 @@ namespace PlanB_Service.Controllers
         [HttpGet]
         public string Get()
         {
-            string json = @"
+            try
             {
-            ""results"": [
-                {
-                    ""properties"": [
-                        {
-                            ""label"": ""First name"",
-                            ""dataType"": ""STRING"",
-                            ""value"": ""Tim Robinson""
-                        }
-                    ]
-                }
-            ]
-        }";
+                string json = @"{
+  ""results"": [
+    {
+      ""objectId"": 245,
+      ""title"": ""API-22: APIs working too fast"",
+      ""link"": ""http://example.com/1"",
+      ""created"": ""2016-09-15"",
+      ""priority"": ""HIGH"",
+      ""project"": ""API"",
+      ""reported_by"": ""msmith@hubspot.com"",
+      ""description"": ""Customer reported that the APIs are just running too fast. This is causing a problem in that they're so happy."",
+      ""reporter_type"": ""Account Manager"",
+      ""status"": ""In Progress"",
+      ""ticket_type"": ""Bug"",
+      ""updated"": ""2016-09-28"",
+     
+    },
+]
+    }";
 
-            return json;
+                return json;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
         }
 
 
