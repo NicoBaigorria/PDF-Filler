@@ -14,16 +14,17 @@ using System.Text.Json;
 using System.Linq.Expressions;
 using Path = System.IO.Path;
 using PDF_Filler;
+using PDF_Filler.Services;
 
 class Program
 {
 
-    static void Main()
+    static async Task Main()
     {
-
+        /*
         FormFiller3 filler = new FormFiller3();
 
-        string folderPath = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\InputFiles\"; 
+        string folderPath = @"C:\Users\nicob\OneDrive\Documentos\GitHub\PDF-Filler\PDF-Filler\InputFiles\"; 
 
         if (Directory.Exists(folderPath))
         {
@@ -36,7 +37,7 @@ class Program
                 foreach (string pdfFile in pdfFiles)
                 {
                     Console.WriteLine(pdfFile);
-                    filler.Process(pdfFile);
+                    filler.ProcessAsync(pdfFile);
                 }
             }
             else
@@ -46,7 +47,17 @@ class Program
         }
         else
         {
-            Console.WriteLine("The specified folder does not exist.");
+           
+        Console.WriteLine("The specified folder does not exist.");
         }
+
+        */
+
+        Hubspot proceso = new Hubspot();
+
+        await proceso.uploadFileAsync();
+
+        Console.WriteLine("asdsad");
+
     }
 }

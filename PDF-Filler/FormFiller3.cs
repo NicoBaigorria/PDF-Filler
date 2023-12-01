@@ -4,6 +4,7 @@ using iText.Forms.Xfa;
 using iText.Kernel.Pdf;
 using Newtonsoft.Json;
 using OfficeOpenXml;
+using PDF_Filler.Services;
 using Syncfusion.Pdf.Parsing;
 using Syncfusion.Pdf.Xfa;
 
@@ -13,7 +14,7 @@ namespace PDF_Filler
     {
 
 
-        public void Process(string inputFile)
+        public async Task ProcessAsync(string inputFile)
         {
 
             try
@@ -220,6 +221,10 @@ namespace PDF_Filler
                             // Save the package
                             package.Save();
                         }
+
+                        //Hubspot procesoHubspot = new Hubspot();
+
+                        //await procesoHubspot.uploadFileAsync();
 
                         Console.WriteLine($"Excel file '{filePath}' created or updated successfully.");
                     }
