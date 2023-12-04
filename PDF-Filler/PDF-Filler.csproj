@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\" />
     <Folder Include="OutputFiles\Xlsx\" />
     <Folder Include="OutputFiles\Xml\" />
     <Folder Include="OutputFiles\Pdf\" />

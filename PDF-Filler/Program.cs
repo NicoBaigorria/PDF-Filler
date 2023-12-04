@@ -21,10 +21,10 @@ class Program
 
     static async Task Main()
     {
-        /*
+        
         FormFiller3 filler = new FormFiller3();
 
-        string folderPath = @"C:\Users\nicob\OneDrive\Documentos\GitHub\PDF-Filler\PDF-Filler\InputFiles\"; 
+        string folderPath = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\InputFiles\"; 
 
         if (Directory.Exists(folderPath))
         {
@@ -51,13 +51,6 @@ class Program
         Console.WriteLine("The specified folder does not exist.");
         }
 
-        */
-
-        Hubspot proceso = new Hubspot();
-
-        await proceso.uploadFileAsync();
-
-        Console.WriteLine("asdsad");
 
     }
 }

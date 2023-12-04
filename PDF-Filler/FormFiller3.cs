@@ -166,7 +166,17 @@ namespace PDF_Filler
 
                         //Close the document.
                         loadedDocument.Close();
+                        docStream2.Close();
 
+                        //Ceate Folder
+                        Hubspot proceso = new Hubspot();
+                        string IdFolder = await proceso.CreateFolder("145506339115", "fede123456789" );
+
+                        //Upload File to Folder in Hubspot
+                        await proceso.UploadFile(IdFolder, outputFile);
+
+
+                        //Create XML
                         string outputFileXml = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\OutputFiles\Xml\" + fileName + ".xml";
 
                         FileStream docStream3 = new FileStream(outputFileXml, FileMode.Create, FileAccess.Write);
@@ -222,11 +232,9 @@ namespace PDF_Filler
                             package.Save();
                         }
 
-                        //Hubspot procesoHubspot = new Hubspot();
-
-                        //await procesoHubspot.uploadFileAsync();
 
                         Console.WriteLine($"Excel file '{filePath}' created or updated successfully.");
+
                     }
                 }
                 else if (IsAcroForm(inputFile))
