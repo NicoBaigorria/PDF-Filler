@@ -1,15 +1,12 @@
-﻿
+﻿using iText.Forms.Xfa;
 using iText.Forms;
-using iText.Forms.Xfa;
 using iText.Kernel.Pdf;
-using Newtonsoft.Json;
-using OfficeOpenXml;
 using PlanB_Service.Models;
 using Syncfusion.Pdf.Xfa;
 
 namespace PlanB_Service
 {
-    internal class FormFiller3
+    public class FormFiller
     {
 
         public async Task ProcessAsync(string inputFile)
@@ -169,71 +166,10 @@ namespace PlanB_Service
 
                         //Ceate Folder
                         Hubspot proceso = new Hubspot();
-                        string IdFolder = await proceso.CreateFolder("145506339115", "fede123456789" );
+                        string IdFolder = await proceso.CreateFolder("145506339115", "fede123456789");
 
                         //Upload File to Folder in Hubspot
                         await proceso.UploadFile(IdFolder, outputFile);
-
-
-                        //Create XML
-                        string outputFileXml = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\OutputFiles\Xml\" + fileName + ".xml";
-
-                        FileStream docStream3 = new FileStream(outputFileXml, FileMode.Create, FileAccess.Write);
-
-                        loadedForm.ExportXfaData(docStream3);
-
-
-                        // Create a new Excel package
-
-                        // var newFile = new FileInfo("C:\\Users\\nicob\\OneDrive\\Documentos\\GitHub\\PDF-Filler\\PDF-Filler\\OutputExcelFiles\\" + fileName + ".xlsx");
-
-
-                        string filePath = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PDF-Filler\\OutputFiles\\Xlsx\\" + fileName + ".xlsx";
-
-                        Console.WriteLine(filePath);
-
-                        // Check if the file exists or create it if it doesn't.
-                        FileInfo newFile = new FileInfo(filePath);
-                        using (var package = new ExcelPackage(newFile))
-                        {
-                            // Access the workbook
-                            var workbook = package.Workbook;
-
-                            // Add a worksheet (create a new one if it doesn't exist)
-                            var worksheet = workbook.Worksheets.FirstOrDefault(ws => ws.Name == "Sheet1") ?? workbook.Worksheets.Add("Sheet1");
-
-                            int i = 1;
-
-                            // Convert data to JSON
-                            string jsonData = JsonConvert.SerializeObject(data, Formatting.Indented);
-
-
-                            foreach (var prop in data)
-                            {
-
-                                Campo campo = prop.Value;
-
-                                worksheet.Cells[i, 1].Value = campo.Name;
-
-                                worksheet.Cells[i, 2].Value = campo.Value;
-
-                                campo.Options.ForEach(option => Console.WriteLine(option));
-
-                                worksheet.Cells[i, 3].Value = String.Join(", ", campo.Options.ToArray());
-
-                                worksheet.Cells[i, 4].Value = campo.Type;
-
-                                i++;
-
-                            }
-
-                            // Save the package
-                            package.Save();
-                        }
-
-
-                        Console.WriteLine($"Excel file '{filePath}' created or updated successfully.");
-
                     }
                 }
                 else if (IsAcroForm(inputFile))
@@ -276,6 +212,6 @@ namespace PlanB_Service
                 }
             }
         }
+
     }
 }
-

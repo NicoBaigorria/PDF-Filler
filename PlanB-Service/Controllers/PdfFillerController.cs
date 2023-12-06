@@ -20,12 +20,14 @@ namespace PlanB_Service.Controllers
         {
             try
             {
-  
-                FormFiller3 formFiller3 = new FormFiller3();
+
+                FormFiller formFiller = new FormFiller();
 
                 string folderJsonPath = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PlanB-Service\\Jsons\\planesForm.json";
 
                 Console.WriteLine(folderJsonPath);
+
+                List<string> filesModified = new List<string>();
 
                 using (StreamReader fileReader = new StreamReader(folderJsonPath))
                 {
@@ -49,13 +51,46 @@ namespace PlanB_Service.Controllers
 
                         Dictionary<string, object> selectedProperties = new Dictionary<string, object>();
 
+                        List<string> namesFiles = new List<string>();
+
+
                         foreach (string propertyName in lista)
                         {
 
                             if (jsonObject.ContainsKey(propertyName))
                             {
                                 // Add the property name and its value to the dictionary
-                                selectedProperties.Add(propertyName, jsonObject[propertyName]);
+                                Console.WriteLine(jsonObject[propertyName].ToString());
+
+                                namesFiles = JsonConvert.DeserializeObject<List<string>>(jsonObject[propertyName].ToString());
+
+                                foreach (string fileName in namesFiles) {
+
+                                    string fileInputsPath = @"C:\Users\Usuario\source\repos\PDF-Filler\PlanB-Service\InputFiles\" + fileName + ".pdf";
+
+                                    Console.WriteLine($"Searching: {fileInputsPath}");
+
+                                    if (System.IO.File.Exists(fileInputsPath))
+                                    {
+                                        Console.WriteLine("Reading: "+ fileInputsPath);
+
+                                        try
+                                        {
+                                            formFiller.ProcessAsync(fileInputsPath).Wait();
+
+                                            filesModified.Add(fileName);
+
+                                        }
+                                        catch  (Exception ex)
+                                        {
+                                            Console.WriteLine("Error al procesar el archivo: " + fileInputsPath);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("The specified folder does not exist.");
+                                    }
+                                }
                             }
                             else
                             {
@@ -68,7 +103,7 @@ namespace PlanB_Service.Controllers
                 }
 
 
-
+                /*
                 string folderInputsPath = @"C:\Users\Usuario\source\repos\PDF-Filler\PlanB-Service\InputFiles\";
 
                 // Check if the folder exists
@@ -90,9 +125,15 @@ namespace PlanB_Service.Controllers
                 {
                     Console.WriteLine("The specified folder does not exist.");
                 }
+                */
 
+                string response = "Formularios procesados correctamente: ";
 
-                return programa_formularios;
+                foreach (string File in filesModified) {
+                    response += File + ", ";
+                }
+
+                return response;
             }
             catch (Exception ex)
             {
