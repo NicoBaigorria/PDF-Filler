@@ -152,6 +152,8 @@ namespace PlanB_Service.Controllers
         }
         */
 
+        /*
+
         // POST api/<PdfFillerController>
         [HttpPost]
         public string Post([FromBody] JsonObject customer)
@@ -160,6 +162,6 @@ namespace PlanB_Service.Controllers
 
             return "asdsadas" + customer.ToString();
         }
-
+        */
     }
 }

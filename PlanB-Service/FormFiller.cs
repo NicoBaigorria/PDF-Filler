@@ -188,6 +188,13 @@ namespace PlanB_Service
 
         }
 
+        public String GetLinksPdfs(string folder) {
+
+            string url = "https://app.hubspot.com/files/21669225/?folderId=" + folder;
+
+            return url;
+        }
+
         static bool IsXfaForm(string filePath)
         {
             using (PdfReader reader = new PdfReader(filePath))
