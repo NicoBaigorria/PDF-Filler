@@ -8,25 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="PropsFiles\imm1294e April, 2022.json" />
-    <Content Remove="PropsFiles\imm1294e.json" />
-    <Content Remove="PropsFiles\imm1295e, April, 2022.json" />
-    <Content Remove="PropsFiles\imm1295e.json" />
-    <Content Remove="PropsFiles\imm5257e.json" />
-    <Content Remove="PropsFiles\imm5476e - Actualizado Agosto 2023.json" />
-    <Content Remove="PropsFiles\imm5476e.json" />
-    <Content Remove="PropsFiles\imm5645e - Family information.json" />
-    <Content Remove="PropsFiles\imm5645e.json" />
-    <Content Remove="PropsFiles\imm5708e-Visitor Record.json" />
-    <Content Remove="PropsFiles\imm5708e.json" />
-    <Content Remove="PropsFiles\imm5709e Student.json" />
-    <Content Remove="PropsFiles\imm5709e.json" />
-    <Content Remove="PropsFiles\imm5710e-Application to change conditions or entend my stay as a worker.json" />
-    <Content Remove="PropsFiles\imm5710e.json" />
-    <Content Remove="PropsFiles\imm5713e.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.0.2" />
     <PackageReference Include="itext7" Version="7.2.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -36,22 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="PropsFiles\imm1294e April, 2022.json" />
-    <None Include="PropsFiles\imm1294e.json" />
-    <None Include="PropsFiles\imm1295e, April, 2022.json" />
-    <None Include="PropsFiles\imm1295e.json" />
-    <None Include="PropsFiles\imm5257e.json" />
-    <None Include="PropsFiles\imm5476e - Actualizado Agosto 2023.json" />
-    <None Include="PropsFiles\imm5476e.json" />
-    <None Include="PropsFiles\imm5645e - Family information.json" />
-    <None Include="PropsFiles\imm5645e.json" />
-    <None Include="PropsFiles\imm5708e-Visitor Record.json" />
-    <None Include="PropsFiles\imm5708e.json" />
-    <None Include="PropsFiles\imm5709e Student.json" />
-    <None Include="PropsFiles\imm5709e.json" />
-    <None Include="PropsFiles\imm5710e-Application to change conditions or entend my stay as a worker.json" />
-    <None Include="PropsFiles\imm5710e.json" />
-    <None Include="PropsFiles\imm5713e.json" />
+    <Folder Include="OutputFiles\Pdf\" />
+    <Folder Include="OutputFiles\Xlsx\" />
+    <Folder Include="OutputFiles\Xml\" />
+    <Folder Include="PropsFiles\" />
   </ItemGroup>
 
 </Project>

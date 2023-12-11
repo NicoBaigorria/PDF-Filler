@@ -9,7 +9,7 @@ namespace PlanB_Service
     public class FormFiller
     {
 
-        public async Task ProcessAsync(string inputFile)
+        public async Task ProcessAsync(string inputFile, string nameFile)
         {
 
             try
@@ -148,12 +148,12 @@ namespace PlanB_Service
 
                         string fileName = Path.GetFileNameWithoutExtension(docStream.Name);
 
-                        string jsonFilePath = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\PropsFiles\" + fileName + ".json";
+                        string jsonFilePath = @"PropsFiles\" + fileName + ".json";
 
                         // Save the JSON to the file
                         File.WriteAllText(jsonFilePath, json);
 
-                        string outputFile = @"C:\Users\Usuario\source\repos\PDF-Filler\PDF-Filler\OutputFiles\Pdf\" + fileName + ".pdf"; // Replace with the path for the filled PDF.
+                        string outputFile = @"OutputFiles\Pdf\" + fileName + ".pdf"; // Replace with the path for the filled PDF.
 
                         //Create memory stream.
                         FileStream docStream2 = new FileStream(outputFile, FileMode.Create, FileAccess.Write);
@@ -164,9 +164,9 @@ namespace PlanB_Service
                         loadedDocument.Close();
                         docStream2.Close();
 
-                        //Ceate Folder
+                        //Create Folder
                         Hubspot proceso = new Hubspot();
-                        string IdFolder = await proceso.CreateFolder("145506339115", "fede123456789");
+                        string IdFolder = await proceso.CreateFolder("145506339115", nameFile);
 
                         //Upload File to Folder in Hubspot
                         await proceso.UploadFile(IdFolder, outputFile);

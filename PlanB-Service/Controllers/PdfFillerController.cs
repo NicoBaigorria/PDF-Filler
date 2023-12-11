@@ -15,15 +15,15 @@ namespace PlanB_Service.Controllers
     public class PdfFillerController : ControllerBase
     {
         // GET: api/<PdfFillerController>
-        [HttpGet("{programa_formularios}")]
-        public string Get(string programa_formularios)
+        [HttpGet("{programa_formularios}/{identificacion_}")]
+        public string Get(string programa_formularios, string identificacion_)
         {
             try
             {
 
                 FormFiller formFiller = new FormFiller();
 
-                string folderJsonPath = "C:\\Users\\Usuario\\source\\repos\\PDF-Filler\\PlanB-Service\\Jsons\\planesForm.json";
+                string folderJsonPath = @"Jsons\planesForm.json";
 
                 Console.WriteLine(folderJsonPath);
 
@@ -66,7 +66,7 @@ namespace PlanB_Service.Controllers
 
                                 foreach (string fileName in namesFiles) {
 
-                                    string fileInputsPath = @"C:\Users\Usuario\source\repos\PDF-Filler\PlanB-Service\InputFiles\" + fileName + ".pdf";
+                                    string fileInputsPath = @"InputFiles\" + fileName + ".pdf";
 
                                     Console.WriteLine($"Searching: {fileInputsPath}");
 
@@ -76,7 +76,7 @@ namespace PlanB_Service.Controllers
 
                                         try
                                         {
-                                            formFiller.ProcessAsync(fileInputsPath).Wait();
+                                            formFiller.ProcessAsync(fileInputsPath, identificacion_).Wait();
 
                                             filesModified.Add(fileName);
 
