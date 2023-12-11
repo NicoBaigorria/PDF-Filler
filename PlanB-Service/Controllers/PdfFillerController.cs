@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using PlanB_Service.Models;
 using System;
 using System.Reflection.Metadata.Ecma335;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -142,6 +145,15 @@ namespace PlanB_Service.Controllers
 
         }
 
+
+        [HttpPost]
+        public string Post([FromBody] JsonObject customer)
+        {
+
+            WebhookBody webhookBody = JsonConvert.DeserializeObject<WebhookBody>(customer.ToString());
+
+            return "asdsadas" + webhookBody.ObjectId;
+        }
 
         /*
         // GET api/<PdfFillerController>/5
