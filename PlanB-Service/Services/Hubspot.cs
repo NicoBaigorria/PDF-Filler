@@ -1,5 +1,6 @@
 ﻿using RestSharp;
 using Newtonsoft.Json;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PlanB_Service
 {
@@ -73,5 +74,24 @@ namespace PlanB_Service
             Console.WriteLine(response.Content);
 
         }
+
+
+        public class Ticket
+        {
+
+            public async Task<string> Read(string id)
+            {
+                var client = new RestClient("https://api.hubapi.com/crm/v3/objects/tickets/" + id + "?properties=age&archived=false");
+                var request = new RestRequest("", Method.Get);
+                request.AddHeader("accept", "application/json");
+                request.AddHeader("authorization", "Bearer pat-na1-31886066-9adb-4992-930a-91cd28f192ff");
+                RestResponse response = await client.ExecuteAsync(request);
+
+                return (response.Content);
+            }
+
+        }
     }
+
+
 }

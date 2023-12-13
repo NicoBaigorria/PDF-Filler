@@ -147,12 +147,37 @@ namespace PlanB_Service.Controllers
 
 
         [HttpPost]
-        public string Post([FromBody] JsonObject customer)
+        public async Task<string> PostAsync([FromBody] JsonObject customer)
         {
 
             WebhookBody webhookBody = JsonConvert.DeserializeObject<WebhookBody>(customer.ToString());
 
-            return "asdsadas" + webhookBody.ObjectId;
+            string idTicket = webhookBody.ObjectId.ToString();
+
+            Hubspot.Ticket ticket = new Hubspot.Ticket();
+
+            string ticketData = await ticket.Read(idTicket);
+
+            JObject jsonObject = JObject.Parse(ticketData);
+
+            JObject properties = (JObject)jsonObject["properties"];
+
+            string jsonFilePath = "../Jsons/ticketProps.json";
+            string jsonString = File.ReadAllText(jsonFilePath);
+
+            JArray jsonArray = JArray.Parse(jsonString);
+
+            List<string> list = new List<string>();
+
+            // Iterate through each string in the array
+            foreach (var propertyName in jsonArray)
+            {
+                Console.WriteLine((string)properties[propertyName]);
+                list.Add((string)properties[propertyName]);
+            }
+
+
+            return (list.ToString());
         }
 
         /*
