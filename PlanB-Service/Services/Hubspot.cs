@@ -81,7 +81,7 @@ namespace PlanB_Service
 
             public async Task<string> Read(string id)
             {
-                var client = new RestClient("https://api.hubapi.com/crm/v3/objects/tickets/" + id + "?properties=age&archived=false");
+                var client = new RestClient("https://api.hubapi.com/crm/v3/objects/tickets/" + id + "?properties=age&properties=identificacion_&properties=programa_formularios&archived=false");
                 var request = new RestRequest("", Method.Get);
                 request.AddHeader("accept", "application/json");
                 request.AddHeader("authorization", "Bearer pat-na1-31886066-9adb-4992-930a-91cd28f192ff");

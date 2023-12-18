@@ -146,13 +146,144 @@ namespace PlanB_Service.Controllers
         }
 
 
+        public async Task<string> CreatePdf(string programa_formularios, string identificacion_) {
+            try
+            {
+
+                FormFiller formFiller = new FormFiller();
+
+                string folderJsonPath = @"Jsons\planesForm.json";
+
+                Console.WriteLine(folderJsonPath);
+
+                List<string> filesModified = new List<string>();
+
+                using (StreamReader fileReader = new StreamReader(folderJsonPath))
+                {
+                    using (JsonTextReader jsonReader = new JsonTextReader(fileReader))
+                    {
+                        JObject jsonObject = JObject.Load(jsonReader);
+
+                        /*
+                        // Get property names
+                        IEnumerable<string> propertyNames = jsonObject.Properties().Select(p => p.Name);
+
+                        // Print property names
+                        foreach (string propertyName in propertyNames)
+                        {
+                            Console.WriteLine(propertyName);
+                        }
+                        */
+
+                        string[] lista = programa_formularios.Split(';');
+
+
+                        Dictionary<string, object> selectedProperties = new Dictionary<string, object>();
+
+                        List<string> namesFiles = new List<string>();
+
+
+                        foreach (string propertyName in lista)
+                        {
+
+                            if (jsonObject.ContainsKey(propertyName))
+                            {
+                                // Add the property name and its value to the dictionary
+                                Console.WriteLine(jsonObject[propertyName].ToString());
+
+                                namesFiles = JsonConvert.DeserializeObject<List<string>>(jsonObject[propertyName].ToString());
+
+                                foreach (string fileName in namesFiles)
+                                {
+
+                                    string fileInputsPath = @"InputFiles\" + fileName + ".pdf";
+
+                                    Console.WriteLine($"Searching: {fileInputsPath}");
+
+                                    if (System.IO.File.Exists(fileInputsPath))
+                                    {
+                                        Console.WriteLine("Reading: " + fileInputsPath);
+
+                                        try
+                                        {
+                                            formFiller.ProcessAsync(fileInputsPath, identificacion_).Wait();
+
+                                            filesModified.Add(fileName);
+
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            Console.WriteLine("Error al procesar el archivo: " + fileInputsPath);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("The specified folder does not exist.");
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Property '{propertyName}' not found in the JSON data.");
+                            }
+                        }
+
+
+                    }
+                }
+
+
+                /*
+                string folderInputsPath = @"C:\Users\Usuario\source\repos\PDF-Filler\PlanB-Service\InputFiles\";
+
+                // Check if the folder exists
+                if (Directory.Exists(folderInputsPath))
+                {
+                    // Get all files with the .pdf extension in the specified folder
+                    string[] pdfFiles = Directory.GetFiles(folderInputsPath, "*.pdf");
+
+                    // Iterate through each PDF file
+                    foreach (string pdfFile in pdfFiles)
+                    {
+                        Console.WriteLine("Found PDF file: " + pdfFile);
+
+                       // formFiller3.ProcessAsync(pdfFile);
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("The specified folder does not exist.");
+                }
+                */
+
+                string response = "Formularios procesados correctamente: ";
+
+                foreach (string File in filesModified)
+                {
+                    response += File + ", ";
+                }
+
+                string url =  identificacion_;
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         [HttpPost]
         public async Task<string> PostAsync([FromBody] JsonObject customer)
         {
+            // Obtener Body
 
             WebhookBody webhookBody = JsonConvert.DeserializeObject<WebhookBody>(customer.ToString());
 
             string idTicket = webhookBody.ObjectId.ToString();
+
+            // Crear TicketData a partir del post
 
             Hubspot.Ticket ticket = new Hubspot.Ticket();
 
@@ -160,45 +291,74 @@ namespace PlanB_Service.Controllers
 
             JObject jsonObject = JObject.Parse(ticketData);
 
+            // Optener propiedades del contacto a partir del Ticket
+
             JObject properties = (JObject)jsonObject["properties"];
 
-            string jsonFilePath = "../Jsons/ticketProps.json";
-            string jsonString = File.ReadAllText(jsonFilePath);
+            /*
+            string jsonFilePath = "./Jsons/ticketProps.json";
+            string jsonString = System.IO.File.ReadAllText(jsonFilePath);
 
-            JArray jsonArray = JArray.Parse(jsonString);
+            JObject json = JObject.Parse(jsonString);
 
-            List<string> list = new List<string>();
+            Console.WriteLine(json["props"]);
+            */
 
-            // Iterate through each string in the array
-            foreach (var propertyName in jsonArray)
+            // Traer lista de propiedades utiles para el formulario
+
+            List<string> list = new List<string> { };
+
+            List<string> propertiesList = new List<string>{ "age","programa_formularios", "identificacion_", "createdate" };
+
+            // Agregar Lista de valores 
+            foreach (string propertyName in propertiesList)
             {
-                Console.WriteLine((string)properties[propertyName]);
-                list.Add((string)properties[propertyName]);
+                try
+                {
+                    Console.WriteLine((string)properties[propertyName]);
+                    list.Add((string)properties[propertyName]);
+                }
+                catch (Exception e) { 
+                    Console.WriteLine(e.Message);
+                }
             }
 
+            static string FilterJsonProperties(string jsonString, List<string> propertiesToFilter)
+            {
+                // Parse the JSON string into a JObject
+                JObject jsonObject = JObject.Parse(jsonString);
 
-            return (list.ToString());
+                // Create a new JObject with only the specified properties
+                JObject filteredObject = new JObject();
+                foreach (string property in propertiesToFilter)
+                {
+                    if (jsonObject.TryGetValue(property, out var value))
+                    {
+                        filteredObject[property] = value;
+                    }
+                }
+
+                // Convert the filtered JObject back to a JSON string
+                string filteredJson = filteredObject.ToString();
+
+                return filteredJson;
+            }
+
+            // Filtrar propiedades
+            string filteredJson = FilterJsonProperties(properties.ToString(), propertiesList);
+
+            // Crer Pdf
+
+            string createPdfMessage = await CreatePdf((string)properties["programa_formularios"], (string)properties["identificacion_"]);
+
+            // Crear Carpeta
+
+            Hubspot hubspot = new Hubspot();
+
+            string idFolder = await hubspot.CreateFolder("145506339115", (string)properties["identificacion_"]);
+
+            return (idFolder);
         }
 
-        /*
-        // GET api/<PdfFillerController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-        */
-
-        /*
-
-        // POST api/<PdfFillerController>
-        [HttpPost]
-        public string Post([FromBody] JsonObject customer)
-        {
-            var body = new StreamReader(Request.Body);
-
-            return "asdsadas" + customer.ToString();
-        }
-        */
     }
 }
