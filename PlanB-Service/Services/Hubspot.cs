@@ -25,7 +25,7 @@ namespace PlanB_Service
             {
                 MaxTimeout = -1,
             };
-            
+
             try
             {
                 var client = new RestClient(options);
@@ -41,7 +41,8 @@ namespace PlanB_Service
                 Console.WriteLine(result.Name);
 
                 return result.Id;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return (ex.Message);
@@ -74,8 +75,6 @@ namespace PlanB_Service
             Console.WriteLine(response.Content);
 
         }
-
-
         public class Ticket
         {
 
@@ -88,6 +87,23 @@ namespace PlanB_Service
                 RestResponse response = await client.ExecuteAsync(request);
 
                 return (response.Content);
+            }
+
+            public async Task UpdateProperties(string id, string properties)
+            {
+                var options = new RestClientOptions("https://api.hubapi.com")
+                {
+                    MaxTimeout = -1,
+                };
+                var client = new RestClient(options);
+                var request = new RestRequest("/crm/v3/objects/tickets/" + id, Method.Patch);
+                request.AddHeader("content-type", "application/json");
+                request.AddHeader("Authorization", "Bearer pat-na1-31886066-9adb-4992-930a-91cd28f192ff");
+                var body = "{\"properties\": "+properties+"}";
+                request.AddStringBody(body, DataFormat.Json);
+                RestResponse response = await client.ExecuteAsync(request);
+                Console.WriteLine(response.Content);
+                Console.WriteLine("Propiedades actualizadas// "+ body);
             }
 
         }
