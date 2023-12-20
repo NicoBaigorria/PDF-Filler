@@ -27,7 +27,7 @@ namespace PlanB_Service.Controllers
 
             List<string> filesModified = new List<string>();
 
-            async Task<string> CreatePdf(string programa_formularios, string identificacion_)
+            async Task<string> CreatePdf(string programa_formularios, string identificacion_, string properties)
             {
                 try
                 {
@@ -86,7 +86,7 @@ namespace PlanB_Service.Controllers
 
                                             try
                                             {
-                                                formFiller.ProcessAsync(fileInputsPath, identificacion_).Wait();
+                                                formFiller.ProcessAsync(fileInputsPath, identificacion_, properties).Wait();
 
                                                 filesModified.Add(fileName);
 
@@ -236,7 +236,7 @@ namespace PlanB_Service.Controllers
 
             // Crer Pdf en Hubspot
 
-            CreatePdf((string)properties["programa_formularios"], (string)properties["identificacion_"]);
+            CreatePdf((string)properties["programa_formularios"], (string)properties["identificacion_"], filteredJson);
 
 
             return (idFolder);

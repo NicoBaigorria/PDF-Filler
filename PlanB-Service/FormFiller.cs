@@ -3,13 +3,15 @@ using iText.Forms;
 using iText.Kernel.Pdf;
 using PlanB_Service.Models;
 using Syncfusion.Pdf.Xfa;
+using Newtonsoft.Json.Linq;
+using Syncfusion.Office;
 
 namespace PlanB_Service
 {
     public class FormFiller
     {
 
-        public async Task ProcessAsync(string inputFile, string nameFile)
+        public async Task ProcessAsync(string inputFile, string nameFile, string properties)
         {
 
             try
@@ -46,6 +48,22 @@ namespace PlanB_Service
 
                         var data = new Dictionary<string, Campo>();
 
+
+
+                        JObject DataProperties = new JObject();
+
+                        DataProperties = JObject.Parse(properties);
+
+                        Console.WriteLine("Data para rellenar");
+
+                        foreach (var property in DataProperties.Properties())
+                        {
+
+                            Console.WriteLine(property.Name + ": " + DataProperties[property.Name]);
+
+                        }
+
+
                         foreach (string nameField in completeFieldNames)
                         {
 
@@ -68,11 +86,11 @@ namespace PlanB_Service
                                         campo.Value = (field as PdfLoadedXfaTextBoxField).Text;
                                         campo.Type = "texto";
 
-                                        if (field.Name == "FamilyName")
+                                        if (DataProperties[field.Name] != null)
                                         {
                                             try
                                             {
-                                                (field as PdfLoadedXfaTextBoxField).Text = "sadsa";
+                                                (field as PdfLoadedXfaTextBoxField).Text = DataProperties[field.Name].ToString();
                                             }
                                             catch (Exception e)
                                             {
