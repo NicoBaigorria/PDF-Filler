@@ -96,11 +96,14 @@ namespace PlanB_Service
                     stringProperties += "properties=" + property + "&";
                 }
 
-                var client = new RestClient("https://api.hubapi.com/crm/v3/objects/tickets/" + id + "?properties=age&properties=identificacion_&properties=programa_formularios&archived=false");
+                var client = new RestClient("https://api.hubapi.com/crm/v3/objects/tickets/" + id + "?"+ stringProperties + "archived=false");
                 var request = new RestRequest("", Method.Get);
                 request.AddHeader("accept", "application/json");
                 request.AddHeader("authorization", "Bearer pat-na1-31886066-9adb-4992-930a-91cd28f192ff");
                 RestResponse response = await client.ExecuteAsync(request);
+
+
+                Console.Write("Respuesta Ticket Data:" + response.Content);
 
                 return (response.Content);
             }
