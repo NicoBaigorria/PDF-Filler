@@ -86,6 +86,8 @@ namespace PlanB_Service
                                         campo.Value = (field as PdfLoadedXfaTextBoxField).Text;
                                         campo.Type = "texto";
 
+                                        Console.WriteLine(field.Name);
+
                                         if (DataProperties[field.Name] != null)
                                         {
                                             try
