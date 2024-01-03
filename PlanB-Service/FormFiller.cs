@@ -168,12 +168,12 @@ namespace PlanB_Service
 
                         string fileName = Path.GetFileNameWithoutExtension(docStream.Name);
 
-                        string jsonFilePath = @"PropsFiles\" + fileName + ".json";
+                        string jsonFilePath = @"PropsFiles/" + fileName + ".json";
 
                         // Save the JSON to the file
                         File.WriteAllText(jsonFilePath, json);
 
-                        string outputFile = @"OutputFiles\Pdf\" + fileName + ".pdf"; // Replace with the path for the filled PDF.
+                        string outputFile = @"OutputFiles/Pdf/" + fileName + ".pdf"; // Replace with the path for the filled PDF.
 
                         //Create memory stream.
                         FileStream docStream2 = new FileStream(outputFile, FileMode.Create, FileAccess.Write);

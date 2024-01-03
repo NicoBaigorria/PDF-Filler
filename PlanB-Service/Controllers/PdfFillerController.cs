@@ -34,7 +34,7 @@ namespace PlanB_Service.Controllers
 
                     FormFiller formFiller = new FormFiller();
 
-                    string folderJsonPath = @"Jsons\planesForm.json";
+                    string folderJsonPath = @"Jsons/planesForm.json";
 
                     Console.WriteLine(folderJsonPath);
 
@@ -62,7 +62,6 @@ namespace PlanB_Service.Controllers
 
                             List<string> namesFiles = new List<string>();
 
-
                             foreach (string propertyName in lista)
                             {
 
@@ -76,7 +75,7 @@ namespace PlanB_Service.Controllers
                                     foreach (string fileName in namesFiles)
                                     {
 
-                                        string fileInputsPath = @"InputFiles\" + fileName + ".pdf";
+                                        string fileInputsPath = @"InputFiles/" + fileName + ".pdf";
 
                                         Console.WriteLine($"Searching: {fileInputsPath}");
 
@@ -114,7 +113,7 @@ namespace PlanB_Service.Controllers
 
 
                     /*
-                    string folderInputsPath = @"C:\Users\Usuario\source\repos\PDF-Filler\PlanB-Service\InputFiles\";
+                    string folderInputsPath = @"C:/Users/Usuario/source/repos/PDF-Filler/PlanB-Service/InputFiles/";
 
                     // Check if the folder exists
                     if (Directory.Exists(folderInputsPath))
@@ -146,7 +145,7 @@ namespace PlanB_Service.Controllers
 
                     string url = identificacion_;
 
-                    return response;
+                    return programa_formularios;
                 }
                 catch (Exception ex)
                 {
