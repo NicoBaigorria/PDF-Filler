@@ -80,11 +80,30 @@ namespace PlanB_Service
 
             public async Task<string> Read(string id)
             {
-                var client = new RestClient("https://api.hubapi.com/crm/v3/objects/tickets/" + id + "?properties=age&properties=identificacion_&properties=programa_formularios&archived=false");
+                List<string> properties = new List<string>() {
+                    "age",
+                    "identificacion_",
+                    "programa_formularios",
+                    "apellido",
+                    "correo_",
+                    "direccion_"
+                };
+
+                string stringProperties = "";
+
+                foreach (string property in properties)
+                {
+                    stringProperties += "properties=" + property + "&";
+                }
+
+                var client = new RestClient("https://api.hubapi.com/crm/v3/objects/tickets/" + id + "?"+ stringProperties + "archived=false");
                 var request = new RestRequest("", Method.Get);
                 request.AddHeader("accept", "application/json");
                 request.AddHeader("authorization", "Bearer pat-na1-31886066-9adb-4992-930a-91cd28f192ff");
                 RestResponse response = await client.ExecuteAsync(request);
+
+
+                Console.Write("Respuesta Ticket Data:" + response.Content);
 
                 return (response.Content);
             }
@@ -99,11 +118,11 @@ namespace PlanB_Service
                 var request = new RestRequest("/crm/v3/objects/tickets/" + id, Method.Patch);
                 request.AddHeader("content-type", "application/json");
                 request.AddHeader("Authorization", "Bearer pat-na1-31886066-9adb-4992-930a-91cd28f192ff");
-                var body = "{\"properties\": "+properties+"}";
+                var body = "{\"properties\": " + properties + "}";
                 request.AddStringBody(body, DataFormat.Json);
                 RestResponse response = await client.ExecuteAsync(request);
                 Console.WriteLine(response.Content);
-                Console.WriteLine("Propiedades actualizadas// "+ body);
+                Console.WriteLine("Propiedades actualizadas// " + body);
             }
 
         }
