@@ -236,10 +236,10 @@ namespace PlanB_Service.Controllers
 
             // Crer Pdf en Hubspot
 
-            CreatePdf((string)properties["programa_formularios"], (string)properties["identificacion_"], filteredJson);
+            string responsePdf = await CreatePdf((string)properties["programa_formularios"], (string)properties["identificacion_"], filteredJson);
 
 
-            return (idFolder);
+            return (responsePdf);
         }
 
     }
