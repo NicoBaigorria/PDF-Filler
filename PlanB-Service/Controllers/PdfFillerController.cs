@@ -29,6 +29,13 @@ namespace PlanB_Service.Controllers
 
             async Task<string> CreatePdf(string programa_formularios, string identificacion_, string properties)
             {
+
+                string listaPdfEncontrados = "lista: ";
+
+
+                string listaPdfsInput = "";
+
+
                 try
                 {
 
@@ -57,10 +64,16 @@ namespace PlanB_Service.Controllers
 
                             string[] lista = programa_formularios.Split(';');
 
+                            string[] filePaths = Directory.GetFiles(@"InputFiles/", "*.pdf", SearchOption.TopDirectoryOnly);
 
                             Dictionary<string, object> selectedProperties = new Dictionary<string, object>();
 
                             List<string> namesFiles = new List<string>();
+
+                            foreach (string namePdf in filePaths)
+                            {
+                                listaPdfsInput += namePdf +", ";
+                            }
 
                             foreach (string propertyName in lista)
                             {
@@ -79,9 +92,14 @@ namespace PlanB_Service.Controllers
 
                                         Console.WriteLine($"Searching: {fileInputsPath}");
 
+                                        listaPdfEncontrados += fileInputsPath + ":";
+
+
                                         if (System.IO.File.Exists(fileInputsPath))
                                         {
                                             Console.WriteLine("Reading: " + fileInputsPath);
+
+                                            listaPdfEncontrados += "encontrado";
 
                                             try
                                             {
@@ -145,7 +163,7 @@ namespace PlanB_Service.Controllers
 
                     string url = identificacion_;
 
-                    return programa_formularios;
+                    return listaPdfsInput;
                 }
                 catch (Exception ex)
                 {
