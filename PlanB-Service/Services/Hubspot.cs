@@ -52,6 +52,7 @@ namespace PlanB_Service
 
         public async Task UploadFile(string id, string path)
         {
+
             var options = new RestClientOptions("https://api.hubapi.com")
             {
                 MaxTimeout = -1,
@@ -73,6 +74,41 @@ namespace PlanB_Service
             // Use RestResponse<T> for asynchronous execution
             RestResponse response = await client.ExecuteAsync(request);
             Console.WriteLine(response.Content);
+         
+        }
+
+
+        public async Task UploadFile2(string id, Stream stream) {
+
+            string postUrl = "https://api.hubapi.com/filemanager/api/v3/files/upload?hapikey=demo";
+            string filename = "example_file.txt";
+
+            var fileOptions = new
+            {
+                access = "PUBLIC_INDEXABLE",
+                ttl = "P3M",
+                overwrite = false,
+                duplicateValidationStrategy = "NONE",
+                duplicateValidationScope = "ENTIRE_PORTAL"
+            };
+
+            var formData = new MultipartFormDataContent
+        {
+            { "file",  new StreamContent(stream), "uploaded_file"  },
+            { "options", new StringContent(JsonConvert.SerializeObject(fileOptions)) },
+            { "folderPath", new StringContent("docs") }
+        };
+
+            var client = new RestClient();
+            var request = new RestRequest(postUrl, Method.Post);
+            request.AddHeader("Content-Type", "multipart/form-data");
+            request.AddHeader("Accept", "application/json");
+            request.AddParameter("Content-Disposition", "form-data", ParameterType.RequestBody);
+            request.AddParameter("multipart/form-data", formData);
+
+            RestResponse response = client.Execute(request);
+
+            Console.WriteLine($"{response.ErrorException}, {response.StatusCode}, {response.Content}");
 
         }
         public class Ticket
