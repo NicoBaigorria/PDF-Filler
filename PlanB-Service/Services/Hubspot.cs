@@ -1,6 +1,7 @@
 ﻿using RestSharp;
 using Newtonsoft.Json;
 using System.Security.Cryptography.X509Certificates;
+using iText.Commons.Utils;
 
 namespace PlanB_Service
 {
@@ -77,40 +78,66 @@ namespace PlanB_Service
          
         }
 
-
         public async Task UploadFile2(string id, Stream stream) {
+            Console.WriteLine("Uploaaaaaaaaaaaaaaaaaaaaaaad");
 
-            string postUrl = "https://api.hubapi.com/filemanager/api/v3/files/upload?hapikey=demo";
-            string filename = "example_file.txt";
-
-            var fileOptions = new
+            try
             {
-                access = "PUBLIC_INDEXABLE",
-                ttl = "P3M",
-                overwrite = false,
-                duplicateValidationStrategy = "NONE",
-                duplicateValidationScope = "ENTIRE_PORTAL"
-            };
 
-            var formData = new MultipartFormDataContent
-        {
-            { "file",  new StreamContent(stream), "uploaded_file"  },
-            { "options", new StringContent(JsonConvert.SerializeObject(fileOptions)) },
-            { "folderPath", new StringContent("docs") }
-        };
+                static byte[] ConvertStreamToBytes(Stream streamData)
+                {
+                    using (MemoryStream memoryStream = new MemoryStream())
+                    {
+                        streamData.CopyTo(memoryStream);
+                        return memoryStream.ToArray();
+                    }
+                }
 
-            var client = new RestClient();
-            var request = new RestRequest(postUrl, Method.Post);
-            request.AddHeader("Content-Type", "multipart/form-data");
-            request.AddHeader("Accept", "application/json");
-            request.AddParameter("Content-Disposition", "form-data", ParameterType.RequestBody);
-            request.AddParameter("multipart/form-data", formData);
+                byte[] file = ConvertStreamToBytes(stream);
 
-            RestResponse response = client.Execute(request);
+                var fileOptions = new
+                {
+                    access = "PUBLIC_INDEXABLE",
+                    ttl = "P3M",
+                    overwrite = false,
+                    duplicateValidationStrategy = "NONE",
+                    duplicateValidationScope = "ENTIRE_PORTAL"
+                };
 
-            Console.WriteLine($"{response.ErrorException}, {response.StatusCode}, {response.Content}");
+
+                var options = new RestClientOptions("https://api.hubapi.com")
+                {
+                    MaxTimeout = -1,
+                };
+                var client = new RestClient(options);
+                var request = new RestRequest("/filemanager/api/v3/files/upload", Method.Post);
+                request.AddHeader("Authorization", "Bearer pat-na1-31886066-9adb-4992-930a-91cd28f192ff");
+                request.AlwaysMultipartFormData = true;
+                request.AddFile("file", file, "FileName.pdf", "application/octet-stream");
+                request.AddParameter("options", JsonConvert.SerializeObject(fileOptions));
+                
+               request.AddParameter("folderPath", "/PDF-Gobierno_de_Canada/PDF-API/pruebadasdasdas");
+
+                RestResponse response = await client.ExecuteAsync(request);
+                Console.WriteLine("SIIIIIIIIIIIIIII-----"+ response.Content);
+
+            }
+            catch (Exception ex) { 
+            
+                   Console.WriteLine("ERRROOOOOOOOOOOOOOOR",ex.ToString());
+            }
 
         }
+
+        public async Task GetFile() {
+            var client = new RestClient("https://api.hubapi.com/files/v3/files/");
+            var request = new RestRequest("https://api.hubapi.com/files/v3/files/", Method.Get);
+            request.AddHeader("accept", "application/json");
+            request.AddHeader("authorization", "Bearer pat-na1-31886066-9adb-4992-930a-91cd28f192ff");
+            RestResponse response = client.Execute(request);
+        }
+
+        
         public class Ticket
         {
 

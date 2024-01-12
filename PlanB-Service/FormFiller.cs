@@ -173,6 +173,7 @@ namespace PlanB_Service
                         // Save the JSON to the file
                         File.WriteAllText(jsonFilePath, json);
 
+                        /*
                         string outputFile = @"OutputFiles/Pdf/" + fileName + ".pdf"; // Replace with the path for the filled PDF.
 
                         //Create memory stream.
@@ -183,13 +184,14 @@ namespace PlanB_Service
                         //Close the document.
                         loadedDocument.Close();
                         docStream2.Close();
+                        */
 
                         //Create Folder
                         Hubspot proceso = new Hubspot();
                         string IdFolder = await proceso.CreateFolder("145506339115", nameFile);
 
                         //Upload File to Folder in Hubspot
-                        await proceso.UploadFile(IdFolder, outputFile);
+                        await proceso.UploadFile2(IdFolder, docStream);
                     }
                 }
                 else if (IsAcroForm(inputFile))
