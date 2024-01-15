@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Security.Cryptography.X509Certificates;
 using iText.Commons.Utils;
+using System.Text;
 
 namespace PlanB_Service
 {
@@ -97,11 +98,7 @@ namespace PlanB_Service
 
                 var fileOptions = new
                 {
-                    access = "PUBLIC_INDEXABLE",
-                    ttl = "P3M",
-                    overwrite = false,
-                    duplicateValidationStrategy = "NONE",
-                    duplicateValidationScope = "ENTIRE_PORTAL"
+                    access = "PUBLIC_INDEXABLE"
                 };
 
 
@@ -113,7 +110,7 @@ namespace PlanB_Service
                 var request = new RestRequest("/filemanager/api/v3/files/upload", Method.Post);
                 request.AddHeader("Authorization", "Bearer pat-na1-31886066-9adb-4992-930a-91cd28f192ff");
                 request.AlwaysMultipartFormData = true;
-                request.AddFile("file", file, "FileName.pdf", "application/octet-stream");
+                request.AddFile("file", file.ToArray(), "FileName.pdf", "application/octet-stream");
                 request.AddParameter("options", JsonConvert.SerializeObject(fileOptions));
                 
                request.AddParameter("folderPath", "/PDF-Gobierno_de_Canada/PDF-API/pruebadasdasdas");

@@ -16,3 +16,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0
 WORKDIR /pdf-filler
 COPY --from=build /pdf-filler/out .
 ENTRYPOINT ["dotnet", "PlanB-Service.dll"]
+
+COPY ./ ./InputFiles .
+
+COPY ./ ./OutputFiles .
