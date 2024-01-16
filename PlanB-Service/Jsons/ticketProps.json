@@ -1,1 +1,1 @@
-{ "props": [ "age", "createdate", ] }
+{ "props": [ "age", "programa_formularios", "identificacion_", "createdate", "familyname" ] }

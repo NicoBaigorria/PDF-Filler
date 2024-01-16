@@ -146,7 +146,8 @@ namespace PlanB_Service
                     "programa_formularios",
                     "apellido",
                     "correo_",
-                    "direccion_"
+                    "direccion_",
+                    "familyname"
                 };
 
                 string stringProperties = "";

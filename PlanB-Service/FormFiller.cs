@@ -86,13 +86,14 @@ namespace PlanB_Service
                                         campo.Value = (field as PdfLoadedXfaTextBoxField).Text;
                                         campo.Type = "texto";
 
-                                        Console.WriteLine(field.Name);
+                                        Console.WriteLine("se encontro el campo: " + field.Name);
 
-                                        if (DataProperties[field.Name] != null)
+                                        if (field.Name == "FamilyName" )
                                         {
                                             try
                                             {
-                                                (field as PdfLoadedXfaTextBoxField).Text = DataProperties[field.Name].ToString();
+                                                (field as PdfLoadedXfaTextBoxField).Text = DataProperties["familyname"].ToString();         
+
                                             }
                                             catch (Exception e)
                                             {
@@ -194,7 +195,9 @@ namespace PlanB_Service
                         //Upload File to Folder in Hubspot
                         await proceso.UploadFile(IdFolder, outputFile);
 
-                        Directory.Delete(@"OutputFiles/Pdf/" + nameFile, true);
+
+
+                       // Directory.Delete(@"OutputFiles/Pdf/" + nameFile, true);
                     }
                 }
                 else if (IsAcroForm(inputFile))

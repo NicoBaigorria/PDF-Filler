@@ -1,6 +1,18 @@
 {
   "age": {
-    "internalName": "edad_",
+    "internalName": "edad_"
+  },
+  "FamilyName": {
+    "internalName": "familyname"
+  },
+  "GivenName": {
+    "internalName": "familyname"
+  },
+  "AliasFamilyName": {
+    "internalName": "familyname"
+  },
+  "AliasGivenName": {
+    "internalName": "familyname"
   },
   "identificacion_",
   "programa_formularios",

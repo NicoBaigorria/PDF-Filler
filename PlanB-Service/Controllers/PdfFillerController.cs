@@ -202,7 +202,16 @@ namespace PlanB_Service.Controllers
 
             List<string> list = new List<string> { };
 
-            List<string> propertiesList = new List<string> { "age", "programa_formularios", "identificacion_", "createdate" };
+            List<string> propertiesList = new List<string> ;
+
+            string JsonTicketProps = @"Jsons/planesForm.json";
+
+            string jsonContent = System.IO.File.ReadAllText(JsonTicketProps);
+
+            dynamic jsonObject = JsonConvert.DeserializeObject<JsonContent>(jsonContent);
+
+            // Accede a la propiedad "properties" y convierte su valor a una List<string>
+             propertiesList = jsonObject.props.ToObject<List<string>>();
 
             // Agregar Lista de valores 
             foreach (string propertyName in propertiesList)
