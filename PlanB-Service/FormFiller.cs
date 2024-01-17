@@ -63,14 +63,27 @@ namespace PlanB_Service
 
                         }
 
+                        string JsonTicketProps = @"Jsons/matchPropiedades.json";
+
+                        string jsonContent = System.IO.File.ReadAllText(JsonTicketProps);
+
+                        JObject jsonObjectProps = JObject.Parse(jsonContent);
+
+                        JToken propertyValue = null;
+
 
                         foreach (string nameField in completeFieldNames)
                         {
 
                             PdfLoadedXfaField field = loadedForm.TryGetFieldByCompleteName(nameField);
 
-                            if (field != null)
+                            if (field != null && jsonObjectProps[field.Name] != null)
                             {
+                                propertyValue = jsonObjectProps[field.Name];
+
+                                string equivalentPropName = propertyValue["internalName"].ToString();
+
+                                Console.WriteLine("equivalente: "+ equivalentPropName);
 
 
                                 string tipo = GetFieldType(field.ToString());
@@ -88,11 +101,11 @@ namespace PlanB_Service
 
                                         Console.WriteLine("se encontro el campo: " + field.Name);
 
-                                        if (field.Name == "FamilyName" )
+                                        if (field.Name != null )
                                         {
                                             try
                                             {
-                                                (field as PdfLoadedXfaTextBoxField).Text = DataProperties["familyname"].ToString();         
+                                                (field as PdfLoadedXfaTextBoxField).Text = DataProperties[equivalentPropName].ToString();         
 
                                             }
                                             catch (Exception e)

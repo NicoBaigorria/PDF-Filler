@@ -6,17 +6,12 @@
     "internalName": "familyname"
   },
   "GivenName": {
-    "internalName": "familyname"
+    "internalName": "GivenName"
   },
   "AliasFamilyName": {
-    "internalName": "familyname"
+    "internalName": "AliasFamilyName"
   },
   "AliasGivenName": {
-    "internalName": "familyname"
-  },
-  "identificacion_",
-  "programa_formularios",
-  "apellido",
-  "correo_",
-  "direccion_"
+    "internalName": "AliasGivenName"
+  }
 }

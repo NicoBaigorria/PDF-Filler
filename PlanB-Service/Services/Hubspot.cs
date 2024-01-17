@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System.Security.Cryptography.X509Certificates;
 using iText.Commons.Utils;
 using System.Text;
+using Newtonsoft.Json.Linq;
 
 namespace PlanB_Service
 {
@@ -140,15 +141,21 @@ namespace PlanB_Service
 
             public async Task<string> Read(string id)
             {
-                List<string> properties = new List<string>() {
-                    "age",
-                    "identificacion_",
-                    "programa_formularios",
-                    "apellido",
-                    "correo_",
-                    "direccion_",
-                    "familyname"
-                };
+
+                List<string> properties = new List<string>();
+
+                string JsonTicketProps = @"Jsons/ticketProps.json";
+
+                string jsonContent = System.IO.File.ReadAllText(JsonTicketProps);
+
+                JObject jsonObjectProps = JObject.Parse(jsonContent);
+
+                JToken propertyValue = jsonObjectProps["props"];
+
+                if (propertyValue != null && propertyValue.Type == JTokenType.Array)
+                {
+                    properties = propertyValue.ToObject<List<string>>();
+                }
 
                 string stringProperties = "";
 

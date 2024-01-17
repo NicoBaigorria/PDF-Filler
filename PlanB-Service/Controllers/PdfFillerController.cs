@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PlanB_Service.Models;
 using System;
+using System.Net.Http.Json;
 using System.Reflection.Metadata.Ecma335;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
@@ -202,19 +203,23 @@ namespace PlanB_Service.Controllers
 
             List<string> list = new List<string> { };
 
-            List<string> propertiesList = new List<string> ;
+            List<string> propertiesList = new List<string>();
 
-            string JsonTicketProps = @"Jsons/planesForm.json";
+            string JsonTicketProps = @"Jsons/ticketProps.json";
 
             string jsonContent = System.IO.File.ReadAllText(JsonTicketProps);
 
-            dynamic jsonObject = JsonConvert.DeserializeObject<JsonContent>(jsonContent);
+            JObject jsonObjectProps = JObject.Parse(jsonContent);
 
-            // Accede a la propiedad "properties" y convierte su valor a una List<string>
-             propertiesList = jsonObject.props.ToObject<List<string>>();
+            JToken propertyValue = jsonObjectProps["props"];
 
-            // Agregar Lista de valores 
-            foreach (string propertyName in propertiesList)
+            if (propertyValue != null && propertyValue.Type == JTokenType.Array)
+            {
+               propertiesList = propertyValue.ToObject<List<string>>();
+            }
+
+                // Agregar Lista de valores 
+                foreach (string propertyName in propertiesList)
             {
                 try
                 {
