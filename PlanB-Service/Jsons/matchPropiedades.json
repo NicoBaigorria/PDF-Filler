@@ -5,13 +5,94 @@
   "FamilyName": {
     "internalName": "familyname"
   },
-  "GivenName": {
-    "internalName": "GivenName"
+  "Edad..*": {
+    "internalName": "edad_"
   },
-  "AliasFamilyName": {
-    "internalName": "AliasFamilyName"
+  "Apellidos": {
+    "internalName": "familyname"
   },
-  "AliasGivenName": {
-    "internalName": "AliasGivenName"
+  "Nombre": {
+    "internalName": "firstname"
+  },
+  "Fecha de nacimiento.*": {
+    "internalName": "fecha_de_nacimiento_"
+  },
+  "Ciudad de Nacimiento.": {
+    "internalName": "ciudad_de_nacimiento_"
+  },
+  "Apellido de tu pareja.*": {
+    "internalName": "spouse_last_name__c"
+  },
+  "Nombre de tu pareja.*": {
+    "internalName": "spouse_first_name__c"
+  },
+  "Número de pasaporte.": {
+    "internalName": "numero_de_pasaporte_"
+  },
+  "Fecha de emisión del pasaporte.": {
+    "internalName": "fecha_de_emision_del_pasaporte_"
+  },
+  "Fecha de caducidad del pasaporte. ": {
+    "internalName": "fecha_de_expiracion_del_pasaporte_"
+  },
+  "Identificación.": {
+    "internalName": "identificacion_"
+  },
+  "Dirección.": {
+    "internalName": "direccion_"
+  },
+  "Ciudad de Residencia.*": {
+    "internalName": "ciudad_de_residencia_"
+  },
+  "Código Postal.": {
+    "internalName": "codigo_postal_"
+  },
+  "Número de teléfono": {
+    "internalName": "phone"
+  },
+  "Correo": {
+    "internalName": "email"
+  },
+  "Detalle Situación Médica.": {
+    "internalName": "detalle_situacion_medica_"
+  },
+  "Apellido de tu pareja.*": {
+    "internalName": "spouse_last_name__c"
+  },
+  "Nombre de tu pareja.*": {
+    "internalName": "spouse_first_name__c"
+  },
+  "Pareja Fecha de Nacimiento.": {
+    "internalName": "pareja_fecha_de_nacimiento_"
+  },
+  "Pareja Dirección.": {
+    "internalName": "pareja_direccion_"
+  },
+  "Ocupación actual de tu pareja.*": {
+    "internalName": "ocupacion_actual_de_tu_pareja"
+  },
+  "Madre - Apellido": {
+    "internalName": "madre___apellido"
+  },
+  "Madre - Nombre": {
+    "internalName": "madre___nombre"
+  },
+  "Madre - Fecha de Nacimiento": {
+    "internalName": "madre___fecha_de_nacimiento"
+  },
+  "Madre - Dirección": {
+    "internalName": "madre___direccion"
+  },
+  "Padre - Apellido": {
+    "internalName": "padre___apellido"
+  },
+  "Madre - Nombre": {
+    "internalName": "madre___nombre"
+  },
+  "Padre - Fecha de Nacimiento": {
+    "internalName": "padre___fecha_de_nacimiento"
+  },
+  "Padre - Dirección": {
+    "internalName": "padre___direccion"
   }
 }
