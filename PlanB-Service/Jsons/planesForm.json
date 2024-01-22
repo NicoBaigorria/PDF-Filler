@@ -1,5 +1,17 @@
 {
   "studypermit": [
+    "imm1294e April, 2022",
+    "imm1295e, April, 2022",
+    "imm5257e",
+    "imm5476e - Actualizado Agosto 2023",
+    "imm5645e - Family information",
+    "imm5708e-Visitor Record",
+    "imm5709e Student",
+    "imm5710e-Application to change conditions or entend my stay as a worker",
+    "imm5713e",
+  ],
+  /*
+  "studypermit": [
     "IMM1294ApplicationforaStudyPermitfromOutsideofCanada",
     "IMM5645E-FamilyInformationForm",
     "IMM5713eUseofaFamilyMember(soloconfamilia)",
@@ -14,6 +26,7 @@
     "IMM5476-Useofrepresentative",
     "imm1294e"
   ],
+  */
   "visitorvisa": [
     "IMM5713eUseofaFamilyMember",
     "IMM5257eTRV",
