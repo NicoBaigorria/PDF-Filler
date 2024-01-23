@@ -48,8 +48,6 @@ namespace PlanB_Service
 
                         var data = new Dictionary<string, Campo>();
 
-
-
                         JObject DataProperties = new JObject();
 
                         DataProperties = JObject.Parse(properties);
@@ -77,103 +75,103 @@ namespace PlanB_Service
 
                             PdfLoadedXfaField field = loadedForm.TryGetFieldByCompleteName(nameField);
 
-                            if (field != null && jsonObjectProps[field.Name] != null)
+                            if (field != null)
                             {
-                                propertyValue = jsonObjectProps[field.Name];
-
-                                string equivalentPropName = propertyValue["internalName"].ToString();
-
-                                Console.WriteLine("equivalente: "+ equivalentPropName);
-
-
                                 string tipo = GetFieldType(field.ToString());
 
                                 listFieldsType.Add(tipo);
 
                                 Campo campo = new Campo(tipo, field.Name, "", new List<string>());
 
-
-                                switch (tipo)
+                                if (jsonObjectProps[field.Name] != null)
                                 {
-                                    case "PdfLoadedXfaTextBoxField":
-                                        campo.Value = (field as PdfLoadedXfaTextBoxField).Text;
-                                        campo.Type = "texto";
+                                    propertyValue = jsonObjectProps[field.Name];
 
-                                        Console.WriteLine("se encontro el campo: " + field.Name);
+                                    string equivalentPropName = propertyValue["internalName"].ToString();
 
-                                        if (field.Name != null )
-                                        {
-                                            try
+                                    Console.WriteLine("equivalente: " + equivalentPropName);
+
+                                    switch (tipo)
+                                    {
+                                        case "PdfLoadedXfaTextBoxField":
+                                            campo.Value = (field as PdfLoadedXfaTextBoxField).Text;
+                                            campo.Type = "texto";
+
+                                            Console.WriteLine("se encontro el campo: " + field.Name);
+
+                                            if (field.Name != null)
                                             {
-                                                (field as PdfLoadedXfaTextBoxField).Text = DataProperties[equivalentPropName].ToString();         
+                                                try
+                                                {
+                                                    (field as PdfLoadedXfaTextBoxField).Text = DataProperties[equivalentPropName].ToString();
 
+                                                }
+                                                catch (Exception e)
+                                                {
+                                                    Console.WriteLine("error al editar campo de texto" + field.Name);
+                                                }
                                             }
-                                            catch (Exception e)
-                                            {
-                                                Console.WriteLine("error al editar campo de texto" + field.Name);
-                                            }
-                                        }
-                                        break;
-                                    case "PdfLoadedXfaComboBoxField":
-                                        List<string> fields = new List<string>((field as PdfLoadedXfaComboBoxField).Items);
+                                            break;
+                                        case "PdfLoadedXfaComboBoxField":
+                                            List<string> fields = new List<string>((field as PdfLoadedXfaComboBoxField).Items);
 
-                                        if (field != null)
-                                        {
-
-                                            foreach (var option in fields)
-                                            {
-                                                string optionText = option;
-                                                Console.WriteLine("opcion: " + optionText);
-                                            }
-
-                                            if (field.Name == "Sex")
+                                            if (field != null)
                                             {
 
-                                                //(field as PdfLoadedXfaComboBoxField).Items.Add("asdsad");
+                                                foreach (var option in fields)
+                                                {
+                                                    string optionText = option;
+                                                    Console.WriteLine("opcion: " + optionText);
+                                                }
 
-                                                // (field as PdfLoadedXfaComboBoxField).SelectedIndex = 0;
+                                                if (field.Name == "Sex")
+                                                {
 
-                                                Console.WriteLine((field as PdfLoadedXfaComboBoxField).SelectedValue);
+                                                    //(field as PdfLoadedXfaComboBoxField).Items.Add("asdsad");
 
-                                                // (field as PdfLoadedXfaComboBoxField).SelectedValue = "Female";
+                                                    // (field as PdfLoadedXfaComboBoxField).SelectedIndex = 0;
 
-                                                Console.WriteLine((field as PdfLoadedXfaComboBoxField).Items.Capacity);
+                                                    Console.WriteLine((field as PdfLoadedXfaComboBoxField).SelectedValue);
+
+                                                    // (field as PdfLoadedXfaComboBoxField).SelectedValue = "Female";
+
+                                                    Console.WriteLine((field as PdfLoadedXfaComboBoxField).Items.Capacity);
+                                                }
                                             }
-                                        }
 
 
-                                        campo.Options = fields;
-                                        campo.Type = "selector multiple";
-                                        break;
-                                    case "PdfLoadedXfaRadioButtonGroup":
-                                        List<PdfLoadedXfaRadioButtonField> fields2 = new List<PdfLoadedXfaRadioButtonField>((field as PdfLoadedXfaRadioButtonGroup).Fields);
+                                            campo.Options = fields;
+                                            campo.Type = "selector multiple";
+                                            break;
+                                        case "PdfLoadedXfaRadioButtonGroup":
+                                            List<PdfLoadedXfaRadioButtonField> fields2 = new List<PdfLoadedXfaRadioButtonField>((field as PdfLoadedXfaRadioButtonGroup).Fields);
 
-                                        List<string> options = new List<string>();
-                                        foreach (PdfLoadedXfaRadioButtonField name in fields2)
-                                        {
-                                            options.Add(name.Name.ToString());
-                                        }
+                                            List<string> options = new List<string>();
+                                            foreach (PdfLoadedXfaRadioButtonField name in fields2)
+                                            {
+                                                options.Add(name.Name.ToString());
+                                            }
 
-                                        campo.Type = "selector";
-                                        campo.Options = options;
+                                            campo.Type = "selector";
+                                            campo.Options = options;
 
-                                        break;
-                                    case "PdfLoadedXfaDateTimeField":
-                                        campo.Value = (field as PdfLoadedXfaDateTimeField).Value.ToString();
-                                        campo.Type = "fecha";
-                                        break;
-                                    case "PdfLoadedXfaCheckBoxField":
-                                        campo.Value = (field as PdfLoadedXfaCheckBoxField).IsChecked.ToString();
-                                        campo.Type = "booleano";
-                                        break;
+                                            break;
+                                        case "PdfLoadedXfaDateTimeField":
+                                            campo.Value = (field as PdfLoadedXfaDateTimeField).Value.ToString();
+                                            campo.Type = "fecha";
+                                            break;
+                                        case "PdfLoadedXfaCheckBoxField":
+                                            campo.Value = (field as PdfLoadedXfaCheckBoxField).IsChecked.ToString();
+                                            campo.Type = "booleano";
+                                            break;
+                                    }
+
                                 }
-
+                                else
+                                {
+                                    Console.WriteLine("Field not found.");
+                                }
                                 data[field.Name] = campo;
-
-                            }
-                            else
-                            {
-                                Console.WriteLine("Field not found.");
                             }
                         }
 
