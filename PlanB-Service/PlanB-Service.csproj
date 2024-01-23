@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="OutputFiles\Pdf\" />
     <Folder Include="OutputFiles\Pdf\pruebadasdasdas\" />
     <Folder Include="OutputFiles\Xlsx\" />
     <Folder Include="OutputFiles\Xml\" />

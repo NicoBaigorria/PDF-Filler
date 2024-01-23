@@ -8,91 +8,127 @@
   "Edad..*": {
     "internalName": "edad_"
   },
-  "Apellidos": {
-    "internalName": "familyname"
+  "FamilyName": {
+    "internalName": "lastname"
   },
-  "Nombre": {
+  "AliasNameIndicator": {
     "internalName": "firstname"
   },
-  "Fecha de nacimiento.*": {
+  "DOBYear": {
     "internalName": "fecha_de_nacimiento_"
   },
-  "Ciudad de Nacimiento.": {
+  "DOBMonth": {
+    "internalName": "fecha_de_nacimiento_"
+  },
+  "DOBDay": {
+    "internalName": "fecha_de_nacimiento_"
+  },
+  "PlaceBirthCity": {
     "internalName": "ciudad_de_nacimiento_"
   },
-  "Apellido de tu pareja.*": {
+  "PMFamilyName": {
     "internalName": "spouse_last_name__c"
   },
-  "Nombre de tu pareja.*": {
+  "PMGivenName": {
     "internalName": "spouse_first_name__c"
   },
-  "Número de pasaporte.": {
+  "PassportNum": {
     "internalName": "numero_de_pasaporte_"
   },
-  "Fecha de emisión del pasaporte.": {
+  "IssueYYYY": {
     "internalName": "fecha_de_emision_del_pasaporte_"
   },
-  "Fecha de caducidad del pasaporte. ": {
+  "IssueDD": {
+    "internalName": "fecha_de_emision_del_pasaporte_"
+  },
+  "IssueMM": {
+    "internalName": "fecha_de_emision_del_pasaporte_"
+  },
+  "expiryYYYY": {
     "internalName": "fecha_de_expiracion_del_pasaporte_"
   },
-  "Identificación.": {
+  "expiryMM": {
+    "internalName": "fecha_de_expiracion_del_pasaporte_"
+  },
+  "expiryDD": {
+    "internalName": "fecha_de_expiracion_del_pasaporte_"
+  },
+  "DocNum": {
     "internalName": "identificacion_"
   },
-  "Dirección.": {
+  "AptUnit": {
     "internalName": "direccion_"
   },
-  "Ciudad de Residencia.*": {
+  "StreetNum": {
+    "internalName": "direccion_"
+  },
+  "Streetname": {
+    "internalName": "direccion_"
+  },
+  "CityTown": {
     "internalName": "ciudad_de_residencia_"
   },
-  "Código Postal.": {
+  "PostalCode": {
     "internalName": "codigo_postal_"
   },
-  "Número de teléfono": {
+  "ActualNumber": {
     "internalName": "phone"
   },
-  "Correo": {
+  "AreaCode": {
+    "internalName": "phone"
+  },
+  "FirstThree": {
+    "internalName": "phone"
+  },
+  "LastFive": {
+    "internalName": "phone"
+  },
+  "IntlNumber": {
+    "internalName": "phone"
+  },
+  "Email": {
     "internalName": "email"
   },
-  "Detalle Situación Médica.": {
+  "MedicalDetails": {
     "internalName": "detalle_situacion_medica_"
   },
-  "Apellido de tu pareja.*": {
+  "SpouseName": {
     "internalName": "spouse_last_name__c"
   },
-  "Nombre de tu pareja.*": {
+  "SpouseName": {
     "internalName": "spouse_first_name__c"
   },
-  "Pareja Fecha de Nacimiento.": {
+  "SpouseDOB": {
     "internalName": "pareja_fecha_de_nacimiento_"
   },
-  "Pareja Dirección.": {
+  "SpouseAddress": {
     "internalName": "pareja_direccion_"
   },
-  "Ocupación actual de tu pareja.*": {
+  "SpouseOccupation": {
     "internalName": "ocupacion_actual_de_tu_pareja"
   },
-  "Madre - Apellido": {
+  "MotherName": {
     "internalName": "madre___apellido"
   },
-  "Madre - Nombre": {
+  "MotherName": {
     "internalName": "madre___nombre"
   },
-  "Madre - Fecha de Nacimiento": {
+  "MotherDOB": {
     "internalName": "madre___fecha_de_nacimiento"
   },
-  "Madre - Dirección": {
+  "MotherAddress": {
     "internalName": "madre___direccion"
   },
-  "Padre - Apellido": {
+  "FatherName": {
     "internalName": "padre___apellido"
   },
-  "Madre - Nombre": {
+  "FatherName": {
     "internalName": "madre___nombre"
   },
-  "Padre - Fecha de Nacimiento": {
+  "FatherDOB": {
     "internalName": "padre___fecha_de_nacimiento"
   },
-  "Padre - Dirección": {
+  "FatherAddress": {
     "internalName": "padre___direccion"
   }
 }
