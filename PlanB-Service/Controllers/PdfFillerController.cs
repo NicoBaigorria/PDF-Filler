@@ -37,6 +37,15 @@ namespace PlanB_Service.Controllers
                 string listaPdfsInput = "";
 
 
+
+                //Create Folder
+                Hubspot proceso = new Hubspot();
+                string IdFolder = await proceso.CreateFolder("145506339115", identificacion_);
+
+                await proceso.DeleteFolder(IdFolder);
+
+                IdFolder = await proceso.CreateFolder("145506339115", identificacion_);
+
                 try
                 {
 
@@ -104,7 +113,7 @@ namespace PlanB_Service.Controllers
 
                                             try
                                             {
-                                                formFiller.ProcessAsync(fileInputsPath, identificacion_, properties).Wait();
+                                                formFiller.ProcessAsync(fileInputsPath, identificacion_, properties, IdFolder).Wait();
 
                                                 filesModified.Add(fileName);
 

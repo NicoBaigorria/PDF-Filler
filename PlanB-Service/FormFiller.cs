@@ -11,7 +11,7 @@ namespace PlanB_Service
     public class FormFiller
     {
 
-        public async Task ProcessAsync(string inputFile, string nameFile, string properties)
+        public async Task ProcessAsync(string inputFile, string nameFile, string properties, string IdFolder)
         {
 
             try
@@ -197,11 +197,8 @@ namespace PlanB_Service
                         //Close the document.
                         loadedDocument.Close();
                         docStream2.Close();
-                        
 
-                        //Create Folder
                         Hubspot proceso = new Hubspot();
-                        string IdFolder = await proceso.CreateFolder("145506339115", nameFile);
 
                         //Upload File to Folder in Hubspot
                         await proceso.UploadFile(IdFolder, outputFile);
