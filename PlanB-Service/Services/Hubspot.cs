@@ -80,6 +80,31 @@ namespace PlanB_Service
          
         }
 
+        public async Task DeleteFolder(string idFolder) {
+            var options = new RestClientOptions("https://api.hubapi.com")
+            {
+                MaxTimeout = -1,
+            };
+
+            try
+            {
+                var client = new RestClient(options);
+                var request = new RestRequest("/files/v3/folders/137636053582", Method.Delete);
+                request.AddHeader("Authorization", "Bearer pat-na1-31886066-9adb-4992-930a-91cd28f192ff");
+                RestResponse response = await client.ExecuteAsync(request);
+                Console.WriteLine(response.Content);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            };
+        }
+
+        public async Task ReplaceFile() {
+            
+        }
+
         public async Task UploadFile2(string id, Stream stream) {
             Console.WriteLine("Uploaaaaaaaaaaaaaaaaaaaaaaad");
 
