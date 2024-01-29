@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="OutputFiles\Pdf\pruebadasdasdas\**" />
+    <Content Remove="OutputFiles\Pdf\pruebadasdasdas\**" />
+    <EmbeddedResource Remove="OutputFiles\Pdf\pruebadasdasdas\**" />
+    <None Remove="OutputFiles\Pdf\pruebadasdasdas\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.0.2" />
     <PackageReference Include="itext7" Version="7.2.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -19,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="OutputFiles\Pdf\" />
-    <Folder Include="OutputFiles\Pdf\pruebadasdasdas\" />
     <Folder Include="OutputFiles\Xlsx\" />
     <Folder Include="OutputFiles\Xml\" />
     <Folder Include="PropsFiles\" />
