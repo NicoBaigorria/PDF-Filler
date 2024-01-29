@@ -22,7 +22,7 @@
     "direccion_",
     "ciudad_de_residencia_",
     "codigo_postal_",
-    //"phone",
+    "phone",
     "email",
     "detalle_situacion_medica_",
     "spouse_last_name__c",

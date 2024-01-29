@@ -91,6 +91,11 @@ namespace PlanB_Service
 
                                     Console.WriteLine("equivalente: " + equivalentPropName);
 
+                                    if (equivalentPropName == "phone")
+                                    {
+                                        Console.WriteLine("Telefono: " + DataProperties[equivalentPropName].ToString());
+                                    }
+
                                     switch (tipo)
                                     {
                                         case "PdfLoadedXfaTextBoxField":
@@ -101,17 +106,34 @@ namespace PlanB_Service
 
                                             if (field.Name != null)
                                             {
-                                                try
+                                                if (field.Name.Contains("YYYY"))
                                                 {
-                                                    (field as PdfLoadedXfaTextBoxField).Text = DataProperties[equivalentPropName].ToString();
-
-                                                    Console.WriteLine("Se lleno el campo " + field.Name + " con el valor: " + DataProperties[equivalentPropName].ToString());
+                                                    DataProperties[equivalentPropName].ToString()
                                                 }
-                                                catch (Exception e)
+                                                else if (field.Name.Contains("MM"))
                                                 {
-                                                    Console.WriteLine("error al editar campo de texto" + field.Name);
+                                                    DataProperties[equivalentPropName].ToString()
+                                                }
+                                                else if (field.Name.Contains("DD"))
+                                                {
+                                                    DataProperties[equivalentPropName].ToString()
+                                                }
+                                                else
+                                                {
+                                                    try
+                                                    {
+                                                        (field as PdfLoadedXfaTextBoxField).Text = DataProperties[equivalentPropName].ToString();
+
+                                                        Console.WriteLine("Se lleno el campo " + field.Name + " con el valor: " + DataProperties[equivalentPropName].ToString());
+                                                    }
+                                                    catch (Exception e)
+                                                    {
+                                                        Console.WriteLine("error al editar campo de texto" + field.Name);
+                                                    }
                                                 }
                                             }
+
+
                                             break;
                                         case "PdfLoadedXfaComboBoxField":
                                             List<string> fields = new List<string>((field as PdfLoadedXfaComboBoxField).Items);
@@ -170,7 +192,7 @@ namespace PlanB_Service
                                 }
                                 else
                                 {
-                                   // Console.WriteLine("Field not found.");
+                                    // Console.WriteLine("Field not found.");
                                 }
                                 data[field.Name] = campo;
                             }
@@ -188,7 +210,7 @@ namespace PlanB_Service
 
                         Directory.CreateDirectory(@"OutputFiles/Pdf/" + nameFile);
 
-                        string outputFile = @"OutputFiles/Pdf/"+ nameFile + "/" + fileName + ".pdf"; // Replace with the path for the filled PDF.
+                        string outputFile = @"OutputFiles/Pdf/" + nameFile + "/" + fileName + ".pdf"; // Replace with the path for the filled PDF.
 
                         //Create memory stream.
                         FileStream docStream2 = new FileStream(outputFile, FileMode.Create, FileAccess.Write);
