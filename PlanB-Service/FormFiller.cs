@@ -204,7 +204,7 @@ namespace PlanB_Service
                         //Upload File to Folder in Hubspot
                         await proceso.UploadFile(IdFolder, outputFile);
 
-                        //Directory.Delete(@"OutputFiles/Pdf/" + nameFile, true);
+                        Directory.Delete(@"OutputFiles/Pdf/" + nameFile, true);
                     }
                 }
                 else if (IsAcroForm(inputFile))
