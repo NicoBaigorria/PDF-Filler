@@ -5,6 +5,7 @@ using PlanB_Service.Models;
 using Syncfusion.Pdf.Xfa;
 using Newtonsoft.Json.Linq;
 using Syncfusion.Office;
+using Microsoft.AspNetCore.Http;
 
 namespace PlanB_Service
 {
@@ -104,33 +105,87 @@ namespace PlanB_Service
 
                                             //Console.WriteLine("se encontro el campo: " + field.Name);
 
-                                            if (field.Name != null)
+                                            string switchValue = "";
+
+                                            if (field.Name.Contains("YYYY") || field.Name.Contains("Year"))
                                             {
-                                                if (field.Name.Contains("YYYY"))
-                                                {
-                                                    DataProperties[equivalentPropName].ToString()
-                                                }
-                                                else if (field.Name.Contains("MM"))
-                                                {
-                                                    DataProperties[equivalentPropName].ToString()
-                                                }
-                                                else if (field.Name.Contains("DD"))
-                                                {
-                                                    DataProperties[equivalentPropName].ToString()
-                                                }
-                                                else
-                                                {
+                                                switchValue = "Year";
+                                            }
+                                            else if (field.Name.Contains("MM") || field.Name.Contains("Month"))
+                                            {
+                                                switchValue = "Month";
+                                            }
+                                            else if (field.Name.Contains("DD") || field.Name.Contains("Day"))
+                                            {
+                                                switchValue = "Day";
+                                            }
+                                            else if (field.Name == "AreaCode")
+                                            {
+                                                switchValue = "AreaCode";
+                                            }
+                                            else if (field.Name == "FirstThree")
+                                            {
+                                                switchValue = "FirstThree";
+                                            }
+                                            else if (field.Name == "LastFive")
+                                            {
+                                                switchValue = "LastFive";
+                                            }
+                                            else if (field.Name == "IntlNumber")
+                                            {
+                                                switchValue = "IntlNumber";
+                                            }
+                                            else
+                                            {
+                                                switchValue = "Default";
+                                            }
+
+                                            switch (switchValue)
+                                            {
+                                                case "Year":
+                                                case "Month":
+                                                case "Day":
+                                                    if (DateTime.TryParse(DataProperties[equivalentPropName].ToString(), out DateTime date))
+                                                    {
+                                                        int value = switchValue == "Year" ? date.Year : switchValue == "Month" ? date.Month : date.Day;
+                                                        (field as PdfLoadedXfaTextBoxField).Text = value.ToString();
+                                                        Console.WriteLine("Se lleno el campo " + field.Name + " con el valor: " + value);
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("Invalid date format");
+                                                    }
+                                                    break;
+
+                                                case "AreaCode":
+                                                case "FirstThree":
+                                                case "LastFive":
+                                                case "IntlNumber":
+                                                    try
+                                                    {
+                                                        int start = switchValue == "AreaCode" ? 3 : switchValue == "FirstThree" ? 5 : switchValue == "LastFive" ? 8 : 1;
+                                                        int length = switchValue == "AreaCode" ? 2 : switchValue == "FirstThree" ? 3 : switchValue == "LastFive" ? 5 : DataProperties[equivalentPropName].ToString().Length;
+
+                                                        (field as PdfLoadedXfaTextBoxField).Text = DataProperties[equivalentPropName].ToString().Substring(start, length);
+                                                        Console.WriteLine("Se lleno el campo " + field.Name + " con el valor: " + DataProperties[equivalentPropName].ToString().Substring(start, length));
+                                                    }
+                                                    catch (Exception e)
+                                                    {
+                                                        Console.WriteLine("error al editar campo de texto" + field.Name);
+                                                    }
+                                                    break;
+
+                                                default:
                                                     try
                                                     {
                                                         (field as PdfLoadedXfaTextBoxField).Text = DataProperties[equivalentPropName].ToString();
-
                                                         Console.WriteLine("Se lleno el campo " + field.Name + " con el valor: " + DataProperties[equivalentPropName].ToString());
                                                     }
                                                     catch (Exception e)
                                                     {
                                                         Console.WriteLine("error al editar campo de texto" + field.Name);
                                                     }
-                                                }
+                                                    break;
                                             }
 
 
