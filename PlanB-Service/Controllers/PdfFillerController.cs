@@ -24,8 +24,7 @@ namespace PlanB_Service.Controllers
         [HttpPost]
         public async Task<string> PostAsync([FromBody] JsonObject customer)
         {
-
-
+            
             List<string> filesModified = new List<string>();
 
             async Task<string> CreatePdf(string programa_formularios, string identificacion_, string properties)
@@ -33,10 +32,7 @@ namespace PlanB_Service.Controllers
 
                 string listaPdfEncontrados = "lista: ";
 
-
                 string listaPdfsInput = "";
-
-
 
                 //Create Folder
                 Hubspot proceso = new Hubspot();
@@ -61,16 +57,6 @@ namespace PlanB_Service.Controllers
                         {
                             JObject jsonObject = JObject.Load(jsonReader);
 
-                            /*
-                            // Get property names
-                            IEnumerable<string> propertyNames = jsonObject.Properties().Select(p => p.Name);
-
-                            // Print property names
-                            foreach (string propertyName in propertyNames)
-                            {
-                                Console.WriteLine(propertyName);
-                            }
-                            */
 
                             string[] lista = programa_formularios.Split(';');
 
@@ -135,34 +121,9 @@ namespace PlanB_Service.Controllers
                                 }
                             }
 
-
                         }
                     }
 
-
-                    /*
-                    string folderInputsPath = @"C:/Users/Usuario/source/repos/PDF-Filler/PlanB-Service/InputFiles/";
-
-                    // Check if the folder exists
-                    if (Directory.Exists(folderInputsPath))
-                    {
-                        // Get all files with the .pdf extension in the specified folder
-                        string[] pdfFiles = Directory.GetFiles(folderInputsPath, "*.pdf");
-
-                        // Iterate through each PDF file
-                        foreach (string pdfFile in pdfFiles)
-                        {
-                            Console.WriteLine("Found PDF file: " + pdfFile);
-
-                           // formFiller3.ProcessAsync(pdfFile);
-
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("The specified folder does not exist.");
-                    }
-                    */
 
                     string response = "Formularios procesados correctamente: ";
 
@@ -198,15 +159,6 @@ namespace PlanB_Service.Controllers
             // Optener propiedades del contacto a partir del Ticket
 
             JObject properties = (JObject)jsonObject["properties"];
-
-            /*
-            string jsonFilePath = "./Jsons/ticketProps.json";
-            string jsonString = System.IO.File.ReadAllText(jsonFilePath);
-
-            JObject json = JObject.Parse(jsonString);
-
-            Console.WriteLine(json["props"]);
-            */
 
             // Traer lista de propiedades utiles para el formulario
 
